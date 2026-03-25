@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://web.archive.org/web/20251231201406/https://www.abercrombie.com/shop/us",
+  "path": "index",
+  "timestamp": "2026-03-25T19:48:05.242Z",
+  "title": "Abercrombie & Fitch | Authentic American clothing since 1892",
+  "template": "homepage",
+  "blocks": [
+    "hero-banner",
+    "cards-editorial",
+    "hero",
+    "carousel-nfl",
+    "hero-brand",
+    "columns-services"
+  ]
+}

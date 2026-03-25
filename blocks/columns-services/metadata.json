@@ -1,0 +1,9 @@
+{
+  "variantName": "columns-services",
+  "baseBlock": "columns",
+  "sourceUrl": "https://www.abercrombie.com/",
+  "sectionId": "section-6",
+  "description": "Three-column layout for membership, app, and store information",
+  "createdDate": "2026-03-25",
+  "usedOnPages": ["https://www.abercrombie.com/"]
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Columns Services",
+  "description": "Three-column layout for membership, app download, and store finder information with icons and CTAs.",
+  "baseBlock": "columns",
+  "visualCharacteristics": "Three equal columns with icon/logo + description + CTA pattern"
+}

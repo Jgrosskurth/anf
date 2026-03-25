@@ -1,0 +1,9 @@
+{
+  "variantName": "hero-brand",
+  "baseBlock": "hero",
+  "sourceUrl": "https://www.abercrombie.com/",
+  "sectionId": "section-5",
+  "description": "Brand promotional hero with logo image and CTAs on lifestyle photography",
+  "createdDate": "2026-03-25",
+  "usedOnPages": ["https://www.abercrombie.com/"]
+}

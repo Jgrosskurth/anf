@@ -1,0 +1,6 @@
+{
+  "name": "Hero Banner",
+  "description": "Promotional banner with bold headline and CTAs on a solid colored background. Used for sale announcements and promotional messaging.",
+  "baseBlock": "hero",
+  "visualCharacteristics": "Solid colored background (e.g., red), italic heading, large sale text, dual CTA buttons"
+}

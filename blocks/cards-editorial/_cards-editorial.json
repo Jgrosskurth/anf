@@ -1,0 +1,6 @@
+{
+  "name": "Cards Editorial",
+  "description": "Editorial image cards with overlaid text labels, trend names, and shop CTAs. Used for trend/collection highlights.",
+  "baseBlock": "cards",
+  "visualCharacteristics": "Side-by-side image cards with text overlay, label + heading + CTA pattern"
+}

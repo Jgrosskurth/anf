@@ -1,0 +1,9 @@
+{
+  "variantName": "cards-editorial",
+  "baseBlock": "cards",
+  "sourceUrl": "https://www.abercrombie.com/",
+  "sectionId": "section-2",
+  "description": "Editorial image cards with overlaid text labels and trend names",
+  "createdDate": "2026-03-25",
+  "usedOnPages": ["https://www.abercrombie.com/"]
+}

@@ -1,0 +1,9 @@
+{
+  "variantName": "carousel-nfl",
+  "baseBlock": "carousel",
+  "sourceUrl": "https://www.abercrombie.com/",
+  "sectionId": "section-4",
+  "description": "Multi-slide carousel for NFL partnership content",
+  "createdDate": "2026-03-25",
+  "usedOnPages": ["https://www.abercrombie.com/"]
+}

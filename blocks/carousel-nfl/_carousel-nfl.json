@@ -1,0 +1,6 @@
+{
+  "name": "Carousel NFL",
+  "description": "Multi-slide carousel for NFL partnership content with lifestyle images, text overlays, and shop CTAs.",
+  "baseBlock": "carousel",
+  "visualCharacteristics": "Full-width image slides with text overlay, NFL logo badge, navigation arrows"
+}

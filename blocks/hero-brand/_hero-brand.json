@@ -1,0 +1,6 @@
+{
+  "name": "Hero Brand",
+  "description": "Brand promotional hero with logo image and CTAs on a lifestyle photography background. Used for sub-brand promotions like YPB.",
+  "baseBlock": "hero",
+  "visualCharacteristics": "Full-width lifestyle image background, brand logo overlay, dual CTA buttons"
+}

@@ -1,0 +1,9 @@
+{
+  "variantName": "hero-banner",
+  "baseBlock": "hero",
+  "sourceUrl": "https://www.abercrombie.com/",
+  "sectionId": "section-1",
+  "description": "Promotional banner with bold headline and CTAs on a solid colored background",
+  "createdDate": "2026-03-25",
+  "usedOnPages": ["https://www.abercrombie.com/"]
+}
