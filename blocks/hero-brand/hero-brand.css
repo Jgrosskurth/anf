@@ -1,3 +1,5 @@
+/* Hero Brand - A&F YPB (Your Personal Best) brand hero */
+
 .hero-brand-container .hero-brand-wrapper {
   max-width: unset;
   padding: 0;
@@ -5,30 +7,23 @@
 
 .hero-brand {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
 }
 
-.hero-brand h1,
-.hero-brand h2,
-.hero-brand h3,
-.hero-brand h4,
-.hero-brand h5,
-.hero-brand h6,
-.hero-brand p {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
-}
-
-.hero-brand.no-image * {
-  color: var(--text-color);
+.hero-brand > div:first-child {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
 }
 
 .hero-brand picture {
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   inset: 0;
   object-fit: cover;
   box-sizing: border-box;
@@ -40,8 +35,84 @@
   height: 100%;
 }
 
+.hero-brand > div:last-child {
+  position: relative;
+  z-index: 1;
+  padding: 40px 24px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  background: linear-gradient(to top, rgb(0 0 0 / 40%) 0%, transparent 100%);
+}
+
+.hero-brand > div:last-child > div:first-child {
+  margin-bottom: 16px;
+}
+
+.hero-brand > div:last-child > div:first-child img {
+  max-height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.hero-brand h1,
+.hero-brand h2,
+.hero-brand h3,
+.hero-brand h4,
+.hero-brand h5,
+.hero-brand h6,
+.hero-brand p {
+  color: var(--color-white);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-brand a:any-link {
+  display: inline-block;
+  border: 1px solid var(--color-white);
+  color: var(--color-white);
+  background-color: transparent;
+  padding: 8px 24px;
+  font-family: var(--body-font-family);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  letter-spacing: var(--button-letter-spacing);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  margin: 4px;
+}
+
+.hero-brand a:hover {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  text-decoration: none;
+}
+
+.hero-brand.no-image {
+  background-color: var(--light-color);
+}
+
+.hero-brand.no-image * {
+  color: var(--text-color);
+}
+
 @media (width >= 900px) {
   .hero-brand {
-    padding: 40px 32px;
+    min-height: 700px;
+  }
+
+  .hero-brand > div:last-child {
+    padding: 60px 32px;
+  }
+
+  .hero-brand > div:last-child > div:first-child img {
+    max-height: 50px;
+  }
+
+  .hero-brand > div:last-child > div:nth-child(2),
+  .hero-brand > div:last-child > div:nth-child(3) {
+    display: inline-block;
   }
 }

@@ -1,3 +1,5 @@
+/* Carousel NFL - A&F NFL Partnership carousel with hero slides */
+
 .carousel-nfl .carousel-nfl-slides-container {
   position: relative;
 }
@@ -29,15 +31,7 @@
   justify-content: center;
   position: relative;
   width: 100%;
-  min-height: min(50vw, calc(100dvh - var(--header-height)));
-}
-
-.carousel-nfl .carousel-nfl-slide:has(.carousel-nfl-slide-content[data-align='center']) {
-  align-items: center;
-}
-
-.carousel-nfl .carousel-nfl-slide:has(.carousel-nfl-slide-content[data-align='right']) {
-  align-items: flex-end;
+  min-height: min(60vw, 600px);
 }
 
 .carousel-nfl .carousel-nfl-slide .carousel-nfl-slide-image picture {
@@ -53,40 +47,93 @@
 
 .carousel-nfl .carousel-nfl-slide .carousel-nfl-slide-content {
   z-index: 1;
-  margin: 68px;
-  padding: 16px;
-  color: white;
-  background-color: rgb(19 19 19 / 75%);
+  margin: 40px 24px;
+  padding: 24px;
+  color: var(--color-white);
+  background-color: rgb(255 255 255 / 92%);
   position: relative;
-  width: var(--slide-content-width, auto);
+  width: auto;
+  max-width: 320px;
 }
 
+.carousel-nfl .carousel-nfl-slide .carousel-nfl-slide-content h2 {
+  font-family: var(--heading-font-family-extended);
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--color-black);
+  margin: 0 0 4px;
+  line-height: 1.15;
+}
+
+.carousel-nfl .carousel-nfl-slide .carousel-nfl-slide-content h3 {
+  font-family: var(--body-font-family);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--brand-red-accent);
+  margin: 0 0 12px;
+  font-style: italic;
+}
+
+.carousel-nfl .carousel-nfl-slide .carousel-nfl-slide-content p {
+  margin: 0 0 12px;
+  color: var(--color-black);
+}
+
+.carousel-nfl .carousel-nfl-slide .carousel-nfl-slide-content p img {
+  max-height: 48px;
+  width: auto;
+}
+
+.carousel-nfl .carousel-nfl-slide .carousel-nfl-slide-content a:any-link {
+  display: inline-block;
+  border: 1px solid var(--color-black);
+  color: var(--color-black);
+  background-color: transparent;
+  padding: 6px 24px;
+  font-family: var(--body-font-family);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  letter-spacing: var(--button-letter-spacing);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.carousel-nfl .carousel-nfl-slide .carousel-nfl-slide-content a:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+/* Slide indicators (dots) */
 .carousel-nfl .carousel-nfl-slide-indicators {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 6px 12px;
-  padding: 12px;
-  background-color: var(--light-color);
+  padding: 16px;
   line-height: 0;
 }
 
 .carousel-nfl .carousel-nfl-slide-indicator button {
-  width: 24px;
-  height: 24px;
+  width: 12px;
+  height: 12px;
   margin: 0;
   padding: 0;
+  border: 1px solid #999;
   border-radius: 50%;
-  background-color: #dadada;
+  background-color: transparent;
   transition: background-color 0.2s;
 }
 
 .carousel-nfl .carousel-nfl-slide-indicator button:disabled,
 .carousel-nfl .carousel-nfl-slide-indicator button:hover,
 .carousel-nfl .carousel-nfl-slide-indicator button:focus-visible {
-  background-color: var(--text-color);
+  background-color: var(--color-black);
+  border-color: var(--color-black);
 }
 
+/* Navigation arrows */
 .carousel-nfl .carousel-nfl-navigation-buttons {
   position: absolute;
   top: 50%;
@@ -107,23 +154,24 @@
   margin: 0;
   border-radius: 50%;
   padding: 0;
-  background-color: rgb(19 19 19 / 25%);
+  background-color: rgb(255 255 255 / 70%);
+  border: none;
   transition: background-color 0.2s;
 }
 
 .carousel-nfl .carousel-nfl-navigation-buttons button:hover,
 .carousel-nfl .carousel-nfl-navigation-buttons button:focus-visible {
-  background-color: rgb(19 19 19 / 75%);
+  background-color: rgb(255 255 255 / 95%);
 }
 
 .carousel-nfl .carousel-nfl-navigation-buttons button::after {
   display: block;
   content: '';
-  border: 2px solid;
+  border: 2px solid var(--color-black);
   border-bottom: 0;
   border-left: 0;
-  height: 12px;
-  width: 12px;
+  height: 10px;
+  width: 10px;
   position: absolute;
   top: 50%;
   left: calc(50% + 2px);
@@ -142,12 +190,12 @@
   }
 
   .carousel-nfl .carousel-nfl-slide .carousel-nfl-slide-content {
-    --slide-content-width: calc((100% - 184px) / 2);
-
-    margin: 92px;
+    margin: 60px;
+    padding: 32px;
+    max-width: 360px;
   }
 
-  .carousel-nfl .carousel-nfl-slide .carousel-nfl-slide-content[data-align='justify'] {
-    --slide-content-width: auto;
+  .carousel-nfl .carousel-nfl-slide .carousel-nfl-slide-content h2 {
+    font-size: 28px;
   }
 }

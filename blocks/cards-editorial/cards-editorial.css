@@ -1,19 +1,19 @@
+/* Cards Editorial - A&F Trend Edit cards with image overlay text */
+
 .cards-editorial > ul {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 24px 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
+  grid-template-columns: 1fr;
   gap: 24px;
 }
 
 .cards-editorial > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
-}
-
-.cards-editorial .cards-editorial-card-body {
-  margin: 16px;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-black);
+  border: none;
 }
 
 .cards-editorial .cards-editorial-card-image {
@@ -22,6 +22,74 @@
 
 .cards-editorial > ul > li img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
+  display: block;
+  opacity: 0.85;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.cards-editorial > ul > li:hover img {
+  opacity: 0.75;
+  transform: scale(1.02);
+}
+
+.cards-editorial .cards-editorial-card-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px;
+  color: var(--color-white);
+  background: linear-gradient(to top, rgb(0 0 0 / 50%) 0%, transparent 100%);
+}
+
+.cards-editorial .cards-editorial-card-body p {
+  color: var(--color-white);
+  font-family: var(--body-font-family);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin: 0 0 4px;
+}
+
+.cards-editorial .cards-editorial-card-body h3 {
+  font-family: var(--heading-font-family-extended);
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--color-white);
+  margin: 0 0 12px;
+  line-height: 1.1;
+}
+
+.cards-editorial .cards-editorial-card-body h3 strong {
+  font-weight: 500;
+}
+
+.cards-editorial .cards-editorial-card-body a:any-link {
+  display: inline-block;
+  border: 1px solid var(--color-white);
+  color: var(--color-white);
+  background-color: transparent;
+  padding: 8px 24px;
+  font-family: var(--body-font-family);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  letter-spacing: var(--button-letter-spacing);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.cards-editorial .cards-editorial-card-body a:hover {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  text-decoration: none;
+}
+
+@media (width >= 600px) {
+  .cards-editorial > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

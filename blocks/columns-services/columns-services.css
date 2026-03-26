@@ -1,33 +1,77 @@
+/* Columns Services - A&F service features (myAbercrombie, App, Store) */
+
+.columns-services-container .columns-services-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
 .columns-services > div {
   display: flex;
   flex-direction: column;
-}
-
-.columns-services img {
-  width: 100%;
+  gap: 32px;
+  text-align: center;
 }
 
 .columns-services > div > div {
-  order: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
 }
 
-.columns-services > div > .columns-services-img-col {
-  order: 0;
+.columns-services img {
+  width: auto;
+  max-height: 40px;
+  object-fit: contain;
 }
 
-.columns-services > div > .columns-services-img-col img {
-  display: block;
+.columns-services p {
+  font-family: var(--body-font-family);
+  font-size: 12px;
+  color: var(--text-color);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 260px;
 }
 
-@media (width >= 900px) {
+.columns-services a:any-link {
+  display: inline-block;
+  font-family: var(--body-font-family);
+  font-size: 11px;
+  font-weight: var(--button-font-weight);
+  letter-spacing: var(--button-letter-spacing);
+  color: var(--color-black);
+  text-decoration: underline;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.columns-services a:hover {
+  color: var(--brand-red);
+  text-decoration: underline;
+}
+
+@media (width >= 600px) {
   .columns-services > div {
-    align-items: center;
-    flex-direction: unset;
-    gap: 24px;
+    flex-direction: row;
+    justify-content: center;
+    gap: 48px;
   }
 
   .columns-services > div > div {
     flex: 1;
-    order: unset;
+    max-width: 280px;
+  }
+}
+
+@media (width >= 900px) {
+  .columns-services-container .columns-services-wrapper {
+    padding: 48px 32px;
+  }
+
+  .columns-services > div {
+    gap: 64px;
   }
 }
