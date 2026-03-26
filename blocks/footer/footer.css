@@ -89,7 +89,7 @@ footer .footer .section:last-child a:hover {
 }
 
 @media (width >= 600px) {
-  footer .footer .section:first-child {
+  footer .footer .section:first-child .default-content-wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
@@ -107,9 +107,12 @@ footer .footer .section:last-child a:hover {
 }
 
 @media (width >= 900px) {
+  footer .footer .section:first-child .default-content-wrapper {
+    gap: 48px;
+  }
+
   footer .footer .section:first-child {
     padding: 48px 32px 32px;
-    gap: 48px;
   }
 
   footer .footer .section:last-child {
