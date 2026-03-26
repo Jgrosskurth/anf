@@ -1,20 +1,118 @@
+/* A&F Footer - Multi-column links with legal text */
+
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+  background-color: var(--brand-warm-beige);
+  font-family: var(--body-font-family);
+  color: var(--text-color);
 }
 
 footer .footer > div {
-  margin: auto;
   max-width: 1200px;
+  margin: auto;
+}
+
+/* Link columns section */
+footer .footer .section:first-child {
   padding: 40px 24px 24px;
+  border-bottom: 1px solid #ddd;
+}
+
+footer .footer .section:first-child > div {
+  padding: 0;
+}
+
+footer .footer h4 {
+  font-family: var(--body-font-family);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--color-black);
+  margin: 0;
+  padding: 16px 0;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+
+footer .footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+}
+
+footer .footer ul li {
+  margin: 0;
+}
+
+footer .footer ul li a {
+  display: block;
+  padding: 8px 0;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+footer .footer ul li a:hover {
+  color: var(--color-black);
+  text-decoration: underline;
 }
 
 footer .footer p {
   margin: 0;
 }
 
+/* Legal section */
+footer .footer .section:last-child {
+  padding: 24px;
+  text-align: center;
+}
+
+footer .footer .section:last-child p {
+  margin: 0 0 8px;
+  font-size: 11px;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+footer .footer .section:last-child a {
+  font-size: 11px;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+footer .footer .section:last-child a:hover {
+  text-decoration: underline;
+  color: var(--color-black);
+}
+
+@media (width >= 600px) {
+  footer .footer .section:first-child {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  footer .footer h4 {
+    cursor: default;
+    border-bottom: none;
+    padding: 0 0 12px;
+  }
+
+  footer .footer ul {
+    display: block;
+  }
+}
+
 @media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+  footer .footer .section:first-child {
+    padding: 48px 32px 32px;
+    gap: 48px;
+  }
+
+  footer .footer .section:last-child {
+    padding: 32px;
   }
 }
