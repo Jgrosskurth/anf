@@ -1,4 +1,4 @@
-/* Hero - A&F Archive Collection hero with image and text overlay */
+/* Hero - A&F full-bleed hero with text overlay */
 
 .hero-container .hero-wrapper {
   max-width: unset;
@@ -7,23 +7,22 @@
 
 .hero {
   position: relative;
-  min-height: 500px;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .hero > div:first-child {
-  position: relative;
-  min-height: 400px;
+  position: absolute;
+  z-index: 0;
+  inset: 0;
   overflow: hidden;
 }
 
 .hero picture {
   position: absolute;
-  z-index: 0;
   inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
 }
 
 .hero img {
@@ -33,10 +32,15 @@
 }
 
 .hero > div:last-child {
-  padding: 32px 24px;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 400px;
+  padding: 40px 24px;
   box-sizing: border-box;
 }
 
@@ -44,24 +48,37 @@
   font-family: var(--heading-font-family-extended);
   font-size: 36px;
   font-weight: 700;
-  color: var(--color-black);
-  margin: 0 0 12px;
+  color: var(--color-white);
+  margin: 0 0 8px;
   line-height: 1.05;
   text-transform: uppercase;
 }
 
-.hero > div:last-child > div:nth-child(2) {
+.hero h2 em {
+  font-style: italic;
+  font-weight: 500;
+}
+
+.hero > div:last-child p {
   font-family: var(--body-font-family);
   font-size: 13px;
-  color: var(--text-color);
-  line-height: 1.5;
-  margin-bottom: 16px;
+  color: var(--color-white);
+  margin: 4px 0;
+}
+
+.hero > div:last-child img {
+  position: static;
+  width: auto;
+  height: auto;
+  max-width: 280px;
+  max-height: 80px;
+  object-fit: contain;
 }
 
 .hero a:any-link {
   display: inline-block;
-  border: 1px solid var(--color-black);
-  color: var(--color-black);
+  border: 1px solid var(--color-white);
+  color: var(--color-white);
   background-color: transparent;
   padding: 8px 30px;
   font-family: var(--body-font-family);
@@ -74,37 +91,27 @@
 }
 
 .hero a:hover {
-  background-color: var(--color-black);
-  color: var(--color-white);
+  background-color: var(--color-white);
+  color: var(--color-black);
   text-decoration: none;
 }
 
 @media (width >= 900px) {
   .hero {
-    min-height: 600px;
-  }
-
-  .hero > div:first-child {
     min-height: 500px;
   }
 
   .hero > div:last-child {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    padding: 24px 32px;
+    min-height: 500px;
+    padding: 60px 32px;
   }
 
   .hero h2 {
     font-size: 48px;
   }
 
-  .hero > div:last-child > div:nth-child(2) {
-    flex: 1;
-    margin-bottom: 0;
-  }
-
-  .hero > div:last-child > div:last-child {
-    flex-shrink: 0;
+  .hero > div:last-child img {
+    max-width: 400px;
+    max-height: 100px;
   }
 }

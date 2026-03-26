@@ -50,7 +50,7 @@
 }
 
 .hero-brand > div:last-child > div:first-child img {
-  max-height: 40px;
+  max-height: 60px;
   width: auto;
   object-fit: contain;
 }
@@ -108,7 +108,7 @@
   }
 
   .hero-brand > div:last-child > div:first-child img {
-    max-height: 50px;
+    max-height: 80px;
   }
 
   .hero-brand > div:last-child > div:nth-child(2),
