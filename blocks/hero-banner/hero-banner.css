@@ -1,4 +1,4 @@
-/* Hero Banner - A&F Red promo banner with Winter Sale */
+/* Hero Banner - A&F promo banner with clearance sale */
 
 .hero-banner-container .hero-banner-wrapper {
   max-width: unset;
@@ -66,7 +66,7 @@
 
 .hero-banner a:hover {
   background-color: var(--color-white);
-  color: var(--brand-red);
+  color: var(--color-black);
   text-decoration: none;
 }
 

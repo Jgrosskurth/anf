@@ -3,44 +3,44 @@
     {
       "name": "homepage",
       "urls": [
-        "https://www.abercrombie.com/"
+        "https://web.archive.org/web/20260323180311/https://www.abercrombie.com/shop/us"
       ],
-      "description": "Abercrombie & Fitch main homepage with hero banners, product categories, and promotional content",
+      "description": "Abercrombie & Fitch Spring 2026 homepage with hero carousel, editorial cards, heritage hero, YPB section, and services",
       "blocks": [
         {
           "name": "hero-banner",
           "instances": [
-            "#fragment_f99f4c3"
-          ]
-        },
-        {
-          "name": "cards-editorial",
-          "instances": [
-            "#fragment_cbdd111"
-          ]
-        },
-        {
-          "name": "hero",
-          "instances": [
-            "#fragment_24f15da"
+            ".promo-banner"
           ]
         },
         {
           "name": "carousel-nfl",
           "instances": [
-            "#fragment_4203fbe"
+            ".hero-carousel"
+          ]
+        },
+        {
+          "name": "cards-editorial",
+          "instances": [
+            ".editorial-cards"
+          ]
+        },
+        {
+          "name": "hero",
+          "instances": [
+            ".heritage-hero"
           ]
         },
         {
           "name": "hero-brand",
           "instances": [
-            "#fragment_f322246"
+            ".ypb-hero"
           ]
         },
         {
           "name": "columns-services",
           "instances": [
-            "#fragment_087e237"
+            ".services-section"
           ]
         }
       ],
@@ -48,61 +48,49 @@
         {
           "id": "section-1",
           "name": "Promo Banner",
-          "selector": "#fragment_f99f4c3",
-          "style": "red-promo",
-          "blocks": [
-            "hero-banner"
-          ],
+          "selector": ".promo-banner",
+          "style": "dark",
+          "blocks": ["hero-banner"],
           "defaultContent": []
         },
         {
           "id": "section-2",
-          "name": "Trend Edit Cards",
-          "selector": "#fragment_cbdd111",
+          "name": "Hotel Abercrombie Carousel",
+          "selector": ".hero-carousel",
           "style": null,
-          "blocks": [
-            "cards-editorial"
-          ],
+          "blocks": ["carousel-nfl"],
           "defaultContent": []
         },
         {
           "id": "section-3",
-          "name": "Archive Collection Hero",
-          "selector": "#fragment_24f15da",
-          "style": "dark",
-          "blocks": [
-            "hero"
-          ],
+          "name": "Editorial Cards",
+          "selector": ".editorial-cards",
+          "style": null,
+          "blocks": ["cards-editorial"],
           "defaultContent": []
         },
         {
           "id": "section-4",
-          "name": "NFL Partnership Carousel",
-          "selector": "#fragment_4203fbe",
+          "name": "Heritage Collection Hero",
+          "selector": ".heritage-hero",
           "style": null,
-          "blocks": [
-            "carousel-nfl"
-          ],
+          "blocks": ["hero"],
           "defaultContent": []
         },
         {
           "id": "section-5",
           "name": "YPB Active Section",
-          "selector": "#fragment_f322246",
+          "selector": ".ypb-hero",
           "style": null,
-          "blocks": [
-            "hero-brand"
-          ],
+          "blocks": ["hero-brand"],
           "defaultContent": []
         },
         {
           "id": "section-6",
           "name": "Membership & Services",
-          "selector": "#fragment_087e237",
+          "selector": ".services-section",
           "style": null,
-          "blocks": [
-            "columns-services"
-          ],
+          "blocks": ["columns-services"],
           "defaultContent": []
         }
       ]
