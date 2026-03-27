@@ -35,13 +35,24 @@
   position: relative;
   z-index: 1;
   display: flex;
-  flex-direction: column;
+  flex-flow: row wrap;
   align-items: center;
-  justify-content: center;
+  place-content: center;
   text-align: center;
   min-height: 400px;
   padding: 40px 24px;
   box-sizing: border-box;
+}
+
+/* Non-CTA children take full width (stack vertically) */
+.hero > div:last-child > div {
+  flex: 0 0 100%;
+}
+
+/* CTA children shrink to content width (sit side-by-side) */
+.hero > div:last-child > div:has(a:any-link) {
+  flex: 0 0 auto;
+  margin: 4px;
 }
 
 .hero h2 {
@@ -98,16 +109,16 @@
 
 @media (width >= 900px) {
   .hero {
-    min-height: 500px;
+    min-height: 560px;
   }
 
   .hero > div:last-child {
-    min-height: 500px;
+    min-height: 560px;
     padding: 60px 32px;
   }
 
   .hero h2 {
-    font-size: 48px;
+    font-size: 52px;
   }
 
   .hero > div:last-child img {

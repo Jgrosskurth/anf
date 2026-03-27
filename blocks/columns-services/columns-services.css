@@ -1,9 +1,13 @@
 /* Columns Services - A&F service features (myAbercrombie, App, Store) */
 
+.columns-services-container {
+  background-color: var(--brand-warm-beige);
+}
+
 .columns-services-container .columns-services-wrapper {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 24px;
+  padding: 48px 24px;
 }
 
 .columns-services > div {
@@ -16,24 +20,40 @@
 .columns-services > div > div {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
+  text-align: center;
   gap: 8px;
   padding: 0 16px;
 }
 
+.columns-services picture {
+  display: block;
+  min-height: 40px;
+}
+
 .columns-services img {
+  display: block;
+  margin: 0 auto;
   width: auto;
+  height: 40px;
   max-height: 40px;
   object-fit: contain;
 }
 
+/* myAbercrombie logo is wider */
+.columns-services > div > div:first-child img {
+  height: 36px;
+  max-width: 200px;
+  max-height: 50px;
+}
+
 .columns-services p {
   font-family: var(--body-font-family);
-  font-size: 12px;
+  font-size: 13px;
   color: var(--text-color);
   line-height: 1.5;
-  margin: 0;
-  max-width: 260px;
+  margin: 4px auto;
+  max-width: 280px;
 }
 
 .columns-services a:any-link {
@@ -62,13 +82,13 @@
 
   .columns-services > div > div {
     flex: 1;
-    max-width: 280px;
+    max-width: 300px;
   }
 }
 
 @media (width >= 900px) {
   .columns-services-container .columns-services-wrapper {
-    padding: 48px 32px;
+    padding: 56px 32px;
   }
 
   .columns-services > div {
