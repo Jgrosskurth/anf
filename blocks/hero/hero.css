@@ -7,7 +7,7 @@
 
 .hero {
   position: relative;
-  min-height: 195px;
+  min-height: 380px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -39,7 +39,7 @@
   align-items: flex-end;
   align-content: flex-end;
   text-align: left;
-  min-height: 195px;
+  min-height: 380px;
   padding: var(--space-24) var(--space-24);
   box-sizing: border-box;
   background: linear-gradient(to top, rgb(0 0 0 / 30%) 0%, rgb(0 0 0 / 8%) 50%, transparent 80%);
@@ -129,11 +129,11 @@
 
 @media (width >= 900px) {
   .hero {
-    min-height: 195px;
+    min-height: 520px;
   }
 
   .hero > div:last-child {
-    min-height: 195px;
+    min-height: 520px;
     padding: var(--space-24) 72px;
   }
 
@@ -149,4 +149,13 @@
     max-width: 400px;
     max-height: 100px;
   }
+}
+
+/* Promo banner — first hero in section is compact */
+.hero-wrapper:first-child .hero {
+  min-height: 195px;
+}
+
+.hero-wrapper:first-child .hero > div:last-child {
+  min-height: 195px;
 }

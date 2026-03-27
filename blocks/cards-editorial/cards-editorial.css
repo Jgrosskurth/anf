@@ -144,3 +144,10 @@
     font-size: var(--text-xl);
   }
 }
+
+/* 2-up editorial cards — landscape ratio for wider columns */
+@media (width >= 600px) {
+  .cards-editorial > ul:not(:has(> li:nth-child(3))) > li img {
+    aspect-ratio: 4 / 3;
+  }
+}
