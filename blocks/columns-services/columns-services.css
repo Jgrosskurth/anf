@@ -1,19 +1,19 @@
-/* Columns Services - A&F service features (myAbercrombie, App, Store) */
+/* Columns Services — membership/app/store utility band, 280px height */
 
 .columns-services-container {
-  background-color: var(--brand-warm-beige);
+  background-color: var(--color-surface);
 }
 
 .columns-services-container .columns-services-wrapper {
-  max-width: 1200px;
+  max-width: var(--section-max-w);
   margin: 0 auto;
-  padding: 48px 24px;
+  padding: var(--space-48) var(--space-24);
 }
 
 .columns-services > div {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: var(--space-40);
   text-align: center;
 }
 
@@ -22,8 +22,8 @@
   flex-direction: column;
   align-items: stretch;
   text-align: center;
-  gap: 8px;
-  padding: 0 16px;
+  gap: var(--space-8);
+  padding: 0 var(--space-16);
 }
 
 .columns-services picture {
@@ -49,35 +49,36 @@
 
 .columns-services p {
   font-family: var(--body-font-family);
-  font-size: 13px;
-  color: var(--text-color);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
   line-height: 1.5;
-  margin: 4px auto;
+  margin: var(--space-4) auto;
   max-width: 280px;
 }
 
 .columns-services a:any-link {
   display: inline-block;
   font-family: var(--body-font-family);
-  font-size: 11px;
+  font-size: var(--text-xs);
   font-weight: var(--button-font-weight);
   letter-spacing: var(--button-letter-spacing);
-  color: var(--color-black);
+  color: var(--color-text);
   text-decoration: underline;
   text-transform: uppercase;
-  transition: color 0.2s ease;
+  transition: color var(--duration-base) var(--ease-standard);
 }
 
 .columns-services a:hover {
-  color: var(--brand-red);
+  color: var(--color-text-muted);
   text-decoration: underline;
 }
 
+/* tablet — 3-up row */
 @media (width >= 600px) {
   .columns-services > div {
     flex-direction: row;
     justify-content: center;
-    gap: 48px;
+    gap: var(--space-48);
   }
 
   .columns-services > div > div {
@@ -86,12 +87,13 @@
   }
 }
 
+/* desktop — wider spacing */
 @media (width >= 900px) {
   .columns-services-container .columns-services-wrapper {
-    padding: 56px 32px;
+    padding: var(--space-64) 72px;
   }
 
   .columns-services > div {
-    gap: 64px;
+    gap: var(--space-64);
   }
 }

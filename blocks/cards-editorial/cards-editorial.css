@@ -1,39 +1,40 @@
-/* Cards Editorial - A&F Trend Edit cards with image overlay text */
+/* Cards Editorial — category tiles & image-overlay editorial cards */
 
 .cards-editorial-container .cards-editorial-wrapper {
   max-width: unset;
-  padding: 0 16px;
+  padding: 0 var(--space-16);
 }
 
-/* Center the section heading above cards */
+/* center the section heading above cards */
 .cards-editorial-container .default-content-wrapper {
   text-align: center;
-  max-width: 1200px;
+  max-width: var(--section-max-w);
   margin: 0 auto;
-  padding: 16px 24px 0;
+  padding: var(--space-16) var(--space-24) 0;
 }
 
 .cards-editorial-container .default-content-wrapper p {
   font-family: var(--heading-font-family-extended);
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  color: var(--text-color);
+  font-size: var(--text-md);
+  font-weight: var(--weight-regular);
+  letter-spacing: 0.02em;
+  color: var(--color-text-muted);
 }
 
 .cards-editorial > ul {
   list-style: none;
   margin: 0;
-  padding: 16px 0;
+  padding: var(--space-16) 0;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
+  gap: var(--space-16);
 }
 
+/* 4:5 tile aspect ratio */
 .cards-editorial > ul > li {
   position: relative;
   overflow: hidden;
-  background-color: var(--color-black);
+  background-color: var(--color-text);
   border: none;
 }
 
@@ -43,16 +44,18 @@
 
 .cards-editorial > ul > li img {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
   display: block;
   opacity: 0.85;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity var(--duration-slow) var(--ease-standard),
+    transform var(--duration-slow) var(--ease-standard);
 }
 
+/* hover: subtle zoom + opacity shift */
 .cards-editorial > ul > li:hover img {
   opacity: 0.75;
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 .cards-editorial .cards-editorial-card-body {
@@ -60,68 +63,77 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 24px;
+  padding: var(--space-24);
   color: var(--color-white);
   background: linear-gradient(to top, rgb(0 0 0 / 50%) 0%, transparent 100%);
 }
 
+/* eyebrow label */
 .cards-editorial .cards-editorial-card-body p {
   color: var(--color-white);
   font-family: var(--body-font-family);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin: 0 0 4px;
+  margin: 0 0 var(--space-4);
 }
 
+/* category / title */
 .cards-editorial .cards-editorial-card-body h3 {
   font-family: var(--heading-font-family-extended);
-  font-size: 32px;
-  font-weight: 500;
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-medium);
   color: var(--color-white);
-  margin: 0 0 12px;
+  margin: 0 0 var(--space-12);
   line-height: 1.1;
 }
 
 .cards-editorial .cards-editorial-card-body h3 strong {
-  font-weight: 500;
+  font-weight: var(--weight-medium);
 }
 
+/* CTA links — outlined button style */
 .cards-editorial .cards-editorial-card-body a:any-link {
-  display: inline-block;
-  border: 1px solid var(--color-white);
-  color: var(--color-white);
-  background-color: transparent;
-  padding: 8px 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--body-font-family);
   font-size: var(--button-font-size);
   font-weight: var(--button-font-weight);
   letter-spacing: var(--button-letter-spacing);
+  color: var(--color-white);
+  background-color: transparent;
+  border: 1px solid var(--color-white);
+  height: var(--button-height);
+  padding: var(--button-padding);
   text-decoration: none;
   text-transform: uppercase;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color var(--duration-base) var(--ease-standard),
+    color var(--duration-base) var(--ease-standard);
 }
 
 .cards-editorial .cards-editorial-card-body a:hover {
   background-color: var(--color-white);
-  color: var(--color-black);
+  color: var(--color-text);
   text-decoration: none;
 }
 
+/* tablet — 2-up grid */
 @media (width >= 600px) {
   .cards-editorial > ul {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .cards-editorial-container .cards-editorial-wrapper {
-    padding: 0 24px;
+    padding: 0 var(--space-24);
   }
 }
 
+/* desktop — 4-up category tiles, tighter gap */
 @media (width >= 900px) {
   .cards-editorial > ul {
-    gap: 12px;
+    gap: var(--space-12);
   }
 
   .cards-editorial > ul:has(> li:nth-child(3)) {
@@ -129,6 +141,10 @@
   }
 
   .cards-editorial-container .cards-editorial-wrapper {
-    padding: 0 32px;
+    padding: 0 72px;
+  }
+
+  .cards-editorial .cards-editorial-card-body h3 {
+    font-size: var(--text-xl);
   }
 }

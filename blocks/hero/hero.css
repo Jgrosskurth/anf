@@ -1,4 +1,4 @@
-/* Hero - A&F full-bleed hero with text overlay */
+/* Hero — full-bleed image with overlay copy, 760px desktop */
 
 .hero-container .hero-wrapper {
   max-width: unset;
@@ -7,7 +7,7 @@
 
 .hero {
   position: relative;
-  min-height: 400px;
+  min-height: 480px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -39,12 +39,12 @@
   align-items: center;
   place-content: center;
   text-align: center;
-  min-height: 400px;
-  padding: 40px 24px;
+  min-height: 480px;
+  padding: var(--space-40) var(--space-24);
   box-sizing: border-box;
 }
 
-/* Non-CTA children take full width (stack vertically) */
+/* non-CTA children take full width (stack vertically) */
 .hero > div:last-child > div {
   flex: 0 0 100%;
 }
@@ -52,29 +52,38 @@
 /* CTA children shrink to content width (sit side-by-side) */
 .hero > div:last-child > div:has(a:any-link) {
   flex: 0 0 auto;
-  margin: 4px;
+  margin: var(--space-4);
 }
 
 .hero h2 {
   font-family: var(--heading-font-family-extended);
-  font-size: 36px;
-  font-weight: 700;
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-semibold);
   color: var(--color-white);
-  margin: 0 0 8px;
+  margin: 0 0 var(--space-8);
   line-height: 1.05;
   text-transform: uppercase;
 }
 
 .hero h2 em {
   font-style: italic;
-  font-weight: 500;
+  font-weight: var(--weight-medium);
+}
+
+.hero h3 {
+  font-family: var(--heading-font-family-extended);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-regular);
+  color: var(--color-white);
+  margin: 0 0 var(--space-16);
+  line-height: 1.2;
 }
 
 .hero > div:last-child p {
   font-family: var(--body-font-family);
-  font-size: 13px;
+  font-size: var(--text-sm);
   color: var(--color-white);
-  margin: 4px 0;
+  margin: var(--space-4) 0;
 }
 
 .hero > div:last-child img {
@@ -87,38 +96,46 @@
 }
 
 .hero a:any-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid var(--color-white);
   color: var(--color-white);
   background-color: transparent;
-  padding: 8px 30px;
+  height: var(--button-height);
+  padding: var(--button-padding);
   font-family: var(--body-font-family);
   font-size: var(--button-font-size);
   font-weight: var(--button-font-weight);
   letter-spacing: var(--button-letter-spacing);
   text-decoration: none;
   text-transform: uppercase;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color var(--duration-base) var(--ease-standard),
+    color var(--duration-base) var(--ease-standard);
 }
 
 .hero a:hover {
   background-color: var(--color-white);
-  color: var(--color-black);
+  color: var(--color-text);
   text-decoration: none;
 }
 
 @media (width >= 900px) {
   .hero {
-    min-height: 560px;
+    min-height: 760px;
   }
 
   .hero > div:last-child {
-    min-height: 560px;
-    padding: 60px 32px;
+    min-height: 760px;
+    padding: var(--space-80) 72px;
   }
 
   .hero h2 {
-    font-size: 52px;
+    font-size: var(--text-4xl);
+  }
+
+  .hero h3 {
+    font-size: var(--text-xl);
   }
 
   .hero > div:last-child img {

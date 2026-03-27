@@ -1,20 +1,20 @@
-/* A&F Footer - Multi-column links with legal text */
+/* Footer — multi-column links, legal row, 64px top padding */
 
 footer {
-  background-color: var(--brand-warm-beige);
+  background-color: var(--color-bg);
   font-family: var(--body-font-family);
-  color: var(--text-color);
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
 }
 
 footer .footer > div {
-  max-width: 1200px;
+  max-width: var(--section-max-w);
   margin: auto;
 }
 
-/* Link columns section */
+/* link columns section */
 footer .footer .section:first-child {
-  padding: 40px 24px 24px;
-  border-bottom: 1px solid #ddd;
+  padding: var(--space-64) var(--space-24) var(--space-32);
 }
 
 footer .footer .section:first-child > div {
@@ -23,15 +23,15 @@ footer .footer .section:first-child > div {
 
 footer .footer h4 {
   font-family: var(--body-font-family);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1.2px;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: var(--color-black);
+  color: var(--color-text);
   margin: 0;
-  padding: 16px 0;
+  padding: var(--space-16) 0;
   cursor: pointer;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--color-border);
 }
 
 footer .footer ul {
@@ -47,16 +47,16 @@ footer .footer ul li {
 
 footer .footer ul li a {
   display: block;
-  padding: 8px 0;
-  font-size: 12px;
-  font-weight: 400;
-  color: var(--text-color);
+  padding: 6px 0;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-regular);
+  color: var(--color-text-muted);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color var(--duration-base) var(--ease-standard);
 }
 
 footer .footer ul li a:hover {
-  color: var(--color-black);
+  color: var(--color-text);
   text-decoration: underline;
 }
 
@@ -64,41 +64,43 @@ footer .footer p {
   margin: 0;
 }
 
-/* Legal section */
+/* legal section */
 footer .footer .section:last-child {
-  padding: 24px;
+  padding: var(--space-24);
   text-align: center;
+  border-top: 1px solid var(--color-border);
 }
 
 footer .footer .section:last-child p {
-  margin: 0 0 8px;
-  font-size: 11px;
-  color: var(--text-color);
+  margin: 0 0 var(--space-8);
+  font-size: var(--text-xs);
+  color: var(--color-text-subtle);
   line-height: 1.6;
 }
 
 footer .footer .section:last-child a {
-  font-size: 11px;
-  color: var(--text-color);
+  font-size: var(--text-xs);
+  color: var(--color-text-subtle);
   text-decoration: none;
 }
 
 footer .footer .section:last-child a:hover {
   text-decoration: underline;
-  color: var(--color-black);
+  color: var(--color-text);
 }
 
+/* tablet+ — multi-column links */
 @media (width >= 600px) {
   footer .footer .section:first-child .default-content-wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
+    gap: var(--space-48);
   }
 
   footer .footer h4 {
     cursor: default;
     border-bottom: none;
-    padding: 0 0 12px;
+    padding: 0 0 var(--space-12);
   }
 
   footer .footer ul {
@@ -106,16 +108,17 @@ footer .footer .section:last-child a:hover {
   }
 }
 
+/* desktop — wider inner padding */
 @media (width >= 900px) {
   footer .footer .section:first-child .default-content-wrapper {
-    gap: 48px;
+    gap: var(--space-64);
   }
 
   footer .footer .section:first-child {
-    padding: 48px 32px 32px;
+    padding: var(--space-64) 72px var(--space-32);
   }
 
   footer .footer .section:last-child {
-    padding: 32px;
+    padding: var(--space-32) 72px;
   }
 }

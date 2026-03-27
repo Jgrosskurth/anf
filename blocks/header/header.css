@@ -1,12 +1,12 @@
-/* A&F Header - Clean minimal navigation bar */
+/* A&F Header — 88px sticky nav, 3-zone layout */
 
 header .nav-wrapper {
-  background-color: var(--background-color);
+  background-color: var(--color-bg);
   width: 100%;
   z-index: 10;
   position: fixed;
   top: 0;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid var(--color-border);
 }
 
 header nav {
@@ -16,11 +16,11 @@ header nav {
     'hamburger brand tools' var(--nav-height)
     'sections sections sections' 1fr / auto 1fr auto;
   align-items: center;
-  gap: 0 16px;
+  gap: 0 var(--space-16);
   margin: auto;
-  max-width: 1264px;
+  max-width: var(--section-max-w);
   height: var(--nav-height);
-  padding: 0 16px;
+  padding: 0 var(--space-16);
   font-family: var(--body-font-family);
 }
 
@@ -41,9 +41,9 @@ header nav[aria-expanded='true'] {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 0 24px;
-    max-width: 1264px;
-    padding: 0 24px;
+    gap: 0 var(--space-32);
+    max-width: var(--section-max-w);
+    padding: 0 72px;
   }
 
   header nav[aria-expanded='true'] {
@@ -58,7 +58,7 @@ header nav p {
 }
 
 header nav a:any-link {
-  color: var(--color-black);
+  color: var(--color-text);
   text-decoration: none;
 }
 
@@ -148,7 +148,7 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
   }
 }
 
-/* brand / logo */
+/* brand / logo — center on mobile, left on desktop */
 header .nav-brand {
   grid-area: brand;
   flex-basis: 180px;
@@ -167,6 +167,8 @@ header .nav-brand {
 header nav .nav-brand a {
   display: inline-block;
   line-height: 0;
+  min-height: 44px;
+  align-content: center;
 }
 
 header nav .nav-brand img {
@@ -201,25 +203,25 @@ header nav .nav-sections ul {
 }
 
 header nav .nav-sections ul > li {
-  font-weight: 700;
+  font-weight: var(--weight-medium);
 }
 
 header nav .nav-sections ul > li > a {
   display: block;
-  padding: 12px 0;
+  padding: var(--space-12) 0;
   font-family: var(--body-font-family);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 1px;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: var(--color-black);
+  color: var(--color-text);
   text-decoration: none;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid var(--color-border);
 }
 
 header nav .nav-sections ul > li > a:hover {
   text-decoration: none;
-  color: var(--text-color);
+  color: var(--color-text-muted);
 }
 
 @media (width >= 900px) {
@@ -235,22 +237,22 @@ header nav .nav-sections ul > li > a:hover {
 
   header nav .nav-sections .default-content-wrapper > ul {
     display: flex;
-    gap: 24px;
+    gap: var(--space-24);
     margin: 0;
   }
 
   header nav .nav-sections ul > li > a {
     display: inline-block;
-    padding: 4px 0;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1.2px;
+    padding: var(--space-16) var(--space-12);
+    font-size: var(--text-md);
+    font-weight: var(--weight-medium);
+    letter-spacing: 0.02em;
     border-bottom: 2px solid transparent;
-    transition: border-color 0.2s ease;
+    transition: border-color var(--duration-base) var(--ease-standard);
   }
 
   header nav .nav-sections ul > li > a:hover {
-    border-bottom-color: var(--color-black);
+    border-bottom-color: var(--color-text);
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li {
@@ -259,28 +261,30 @@ header nav .nav-sections ul > li > a:hover {
   }
 }
 
-/* tools / utility icons */
+/* tools / utility icons — 44px tap targets */
 header nav .nav-tools {
   grid-area: tools;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: var(--space-16);
 }
 
 header nav .nav-tools p {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: var(--space-16);
 }
 
 header nav .nav-tools .icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
+  min-width: 44px;
+  min-height: 44px;
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition: opacity var(--duration-base) var(--ease-standard);
 }
 
 header nav .nav-tools .icon:hover {
@@ -288,26 +292,26 @@ header nav .nav-tools .icon:hover {
 }
 
 header nav .nav-tools .icon img {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
 }
 
 @media (width >= 900px) {
   header nav .nav-tools {
-    gap: 20px;
+    gap: var(--space-20);
   }
 
   header nav .nav-tools p {
-    gap: 20px;
+    gap: var(--space-20);
   }
 
   header nav .nav-tools .icon {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
   }
 
   header nav .nav-tools .icon img {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
   }
 }
