@@ -66,7 +66,7 @@
   right: 0;
   padding: var(--space-24);
   color: var(--color-white);
-  background: linear-gradient(to top, rgb(0 0 0 / 50%) 0%, rgb(0 0 0 / 15%) 50%, transparent 100%);
+  background: linear-gradient(to top, rgb(0 0 0 / 45%) 0%, rgb(0 0 0 / 10%) 40%, transparent 70%);
   text-align: left;
 }
 
@@ -94,6 +94,8 @@
 }
 
 .cards-editorial .cards-editorial-card-body h3 strong {
+  font-family: inherit;
+  font-style: inherit;
   font-weight: var(--weight-regular);
 }
 
