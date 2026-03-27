@@ -21,20 +21,28 @@ export default async function decorate(block) {
   if (firstSection) {
     const headings = firstSection.querySelectorAll('h4');
     if (headings.length > 1) {
-      const columns = [];
-      headings.forEach((h4) => {
+      // Capture pairs before any DOM manipulation
+      const pairs = [...headings].map((h4) => {
+        const next = h4.nextElementSibling;
+        return { h4, ul: next && next.tagName === 'UL' ? next : null };
+      });
+
+      // Build column divs
+      const columns = pairs.map(({ h4, ul }) => {
         const col = document.createElement('div');
         col.append(h4);
-        const next = h4.nextElementSibling;
-        if (next && next.tagName === 'UL') col.append(next);
-        columns.push(col);
+        if (ul) col.append(ul);
+        return col;
       });
-      // Clear section content and rebuild with columns
-      const wrapper = firstSection.querySelector('.default-content-wrapper');
-      if (wrapper) {
-        wrapper.textContent = '';
-        columns.forEach((col) => wrapper.append(col));
+
+      // Find or create .default-content-wrapper and rebuild
+      let wrapper = firstSection.querySelector('.default-content-wrapper');
+      if (!wrapper) {
+        wrapper = document.createElement('div');
+        wrapper.className = 'default-content-wrapper';
       }
+      wrapper.replaceChildren(...columns);
+      firstSection.replaceChildren(wrapper);
     }
   }
 
