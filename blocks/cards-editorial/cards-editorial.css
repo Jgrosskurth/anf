@@ -99,30 +99,28 @@
   font-weight: var(--weight-regular);
 }
 
-/* CTA links — small outlined button style */
+/* CTA links — underlined text links, NOT buttons */
 .cards-editorial .cards-editorial-card-body a:any-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline;
   font-family: var(--body-font-family);
   font-size: 11px;
-  font-weight: var(--button-font-weight);
+  font-weight: var(--weight-semibold);
   letter-spacing: var(--button-letter-spacing);
   color: var(--color-white);
   background-color: transparent;
-  border: 1px solid var(--color-white);
-  height: 36px;
-  padding: 0 14px;
-  text-decoration: none;
+  border: none;
+  height: auto;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
   text-transform: uppercase;
-  transition: background-color var(--duration-base) var(--ease-standard),
-    color var(--duration-base) var(--ease-standard);
 }
 
 .cards-editorial .cards-editorial-card-body a:hover {
-  background-color: var(--color-white);
-  color: var(--color-text);
-  text-decoration: none;
+  background-color: transparent;
+  color: var(--color-white);
+  text-decoration: underline;
+  opacity: 0.8;
 }
 
 /* tablet — 2-up grid */

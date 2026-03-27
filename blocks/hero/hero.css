@@ -1,4 +1,4 @@
-/* Hero — full-bleed image with overlay copy */
+/* Hero — image with overlay copy, constrained height */
 
 .hero-container .hero-wrapper {
   max-width: unset;
@@ -7,7 +7,7 @@
 
 .hero {
   position: relative;
-  min-height: 480px;
+  min-height: 195px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -39,10 +39,10 @@
   align-items: flex-end;
   align-content: flex-end;
   text-align: left;
-  min-height: 480px;
-  padding: var(--space-40) var(--space-24);
+  min-height: 195px;
+  padding: var(--space-24) var(--space-24);
   box-sizing: border-box;
-  background: linear-gradient(to top, rgb(0 0 0 / 35%) 0%, rgb(0 0 0 / 10%) 40%, transparent 70%);
+  background: linear-gradient(to top, rgb(0 0 0 / 30%) 0%, rgb(0 0 0 / 8%) 50%, transparent 80%);
 }
 
 /* non-CTA children take full width (stack vertically) */
@@ -53,17 +53,17 @@
 /* CTA children shrink to content width (sit side-by-side) */
 .hero > div:last-child > div:has(a:any-link) {
   flex: 0 0 auto;
-  margin: var(--space-4);
+  margin: 0 var(--space-12) 0 0;
 }
 
 /* campaign headline — serif italic like original A&F */
 .hero h2 {
   font-family: var(--heading-font-family-campaign);
-  font-size: var(--text-3xl);
+  font-size: var(--text-2xl);
   font-weight: var(--weight-regular);
   font-style: italic;
   color: var(--color-white);
-  margin: 0 0 var(--space-8);
+  margin: 0 0 var(--space-4);
   line-height: 1.05;
   text-transform: none;
   letter-spacing: -0.01em;
@@ -81,7 +81,7 @@
   font-weight: var(--weight-regular);
   font-style: italic;
   color: var(--color-white);
-  margin: 0 0 var(--space-16);
+  margin: 0 0 var(--space-8);
   line-height: 1.2;
   text-transform: none;
 }
@@ -103,44 +103,42 @@
   object-fit: contain;
 }
 
-/* buttons — outlined white (transparent bg, white border, white text) */
+/* CTAs — underlined text links, NOT buttons */
 .hero a:any-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--color-white);
+  display: inline;
+  border: none;
   color: var(--color-white);
   background-color: transparent;
-  height: var(--button-height);
-  padding: var(--button-padding);
+  height: auto;
+  padding: 0;
   font-family: var(--body-font-family);
-  font-size: var(--button-font-size);
-  font-weight: var(--button-font-weight);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
   letter-spacing: var(--button-letter-spacing);
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 3px;
   text-transform: uppercase;
-  transition: background-color var(--duration-base) var(--ease-standard),
-    color var(--duration-base) var(--ease-standard);
 }
 
 .hero a:hover {
-  background-color: var(--color-white);
-  color: var(--color-text);
-  text-decoration: none;
+  background-color: transparent;
+  color: var(--color-white);
+  text-decoration: underline;
+  opacity: 0.8;
 }
 
 @media (width >= 900px) {
   .hero {
-    min-height: 580px;
+    min-height: 195px;
   }
 
   .hero > div:last-child {
-    min-height: 580px;
-    padding: var(--space-48) 72px var(--space-64);
+    min-height: 195px;
+    padding: var(--space-24) 72px;
   }
 
   .hero h2 {
-    font-size: var(--text-4xl);
+    font-size: var(--text-3xl);
   }
 
   .hero h3 {

@@ -151,7 +151,8 @@
 
 body {
   display: none;
-  margin: 0;
+  margin: 0 auto;
+  max-width: 1440px;
   background-color: var(--color-bg);
   color: var(--color-text-muted);
   font-family: var(--body-font-family);
@@ -164,7 +165,7 @@ body.appear {
 }
 
 header {
-  height: var(--nav-height);
+  height: auto;
 }
 
 header .header,

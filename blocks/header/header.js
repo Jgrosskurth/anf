@@ -137,6 +137,13 @@ export default async function decorate(block) {
     brandLink.closest('.button-container').className = '';
   }
 
+  // fix broken logo src from DA upload
+  const logoImg = navBrand.querySelector('img');
+  if (logoImg && (!logoImg.src || logoImg.src.includes('about:error'))) {
+    logoImg.src = '/icons/anf-logo.svg';
+    logoImg.alt = 'Abercrombie & Fitch';
+  }
+
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
@@ -164,8 +171,30 @@ export default async function decorate(block) {
   toggleMenu(nav, navSections, isDesktop.matches);
   isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
 
+  // utility bar — A&F | abercrombie kids | Sign In
+  const utilityBar = document.createElement('div');
+  utilityBar.className = 'nav-utility-bar';
+  utilityBar.innerHTML = `<div class="nav-utility-inner">
+    <div class="nav-utility-brands">
+      <a href="/" class="active">A&F</a>
+      <a href="https://www.abercrombie.com/shop/us/abercrombie-kids">abercrombie kids</a>
+    </div>
+    <div class="nav-utility-account">
+      <a href="https://www.abercrombie.com/shop/us/account">Sign In or Join</a>
+    </div>
+  </div>`;
+
+  // promo strip — sitewide promotion
+  const promoStrip = document.createElement('div');
+  promoStrip.className = 'nav-promo-strip';
+  promoStrip.innerHTML = `<p>Free Shipping on Orders Over $99 |
+    <a href="https://www.abercrombie.com/shop/us/womens">SHOP WOMEN'S</a>&ensp;
+    <a href="https://www.abercrombie.com/shop/us/mens">SHOP MEN'S</a></p>`;
+
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
+  block.append(utilityBar);
   block.append(navWrapper);
+  block.append(promoStrip);
 }
