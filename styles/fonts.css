@@ -39,3 +39,20 @@
   font-display: swap;
   src: url('../fonts/trade-gothic-condensed-bold.woff2') format('woff2');
 }
+
+/* Campaign font — EB Garamond (closest match to A&F's garamond-premier-pro) */
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/eb-garamond-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/eb-garamond-italic.woff2') format('woff2');
+}

@@ -67,15 +67,15 @@
   margin-right: auto;
 }
 
-/* brand statement — large serif uppercase like original A&F */
+/* brand statement — bold condensed sans-serif uppercase like original A&F */
 .hero-brand h2 {
-  font-family: var(--heading-font-family-campaign);
+  font-family: var(--heading-font-family-extended);
   font-size: var(--text-2xl);
-  font-weight: var(--weight-regular);
-  line-height: 1.1;
+  font-weight: 700;
+  line-height: 1.05;
   margin: 0 auto var(--space-8);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
 }
 
 .hero-brand p {
@@ -86,14 +86,14 @@
   margin-right: auto;
 }
 
-/* buttons — filled white with dark text */
+/* buttons — outlined white (transparent bg, white border) */
 .hero-brand a:any-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border: 1px solid var(--color-white);
-  color: var(--color-text);
-  background-color: var(--color-white);
+  color: var(--color-white);
+  background-color: transparent;
   height: var(--button-height);
   padding: var(--button-padding);
   font-family: var(--body-font-family);
@@ -108,8 +108,8 @@
 }
 
 .hero-brand a:hover {
-  background-color: transparent;
-  color: var(--color-white);
+  background-color: var(--color-white);
+  color: var(--color-text);
   text-decoration: none;
 }
 
@@ -135,7 +135,7 @@
   }
 
   .hero-brand h2 {
-    font-size: var(--text-3xl);
+    font-size: var(--text-4xl);
   }
 
   .hero-brand > div:last-child > div:nth-child(2),

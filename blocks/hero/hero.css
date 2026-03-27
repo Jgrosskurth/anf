@@ -36,12 +36,13 @@
   z-index: 1;
   display: flex;
   flex-flow: row wrap;
-  align-items: center;
-  place-content: center;
-  text-align: center;
+  align-items: flex-end;
+  align-content: flex-end;
+  text-align: left;
   min-height: 480px;
   padding: var(--space-40) var(--space-24);
   box-sizing: border-box;
+  background: linear-gradient(to top, rgb(0 0 0 / 35%) 0%, rgb(0 0 0 / 10%) 40%, transparent 70%);
 }
 
 /* non-CTA children take full width (stack vertically) */
@@ -102,14 +103,14 @@
   object-fit: contain;
 }
 
-/* buttons — filled white with dark text (matches original A&F) */
+/* buttons — outlined white (transparent bg, white border, white text) */
 .hero a:any-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border: 1px solid var(--color-white);
-  color: var(--color-text);
-  background-color: var(--color-white);
+  color: var(--color-white);
+  background-color: transparent;
   height: var(--button-height);
   padding: var(--button-padding);
   font-family: var(--body-font-family);
@@ -123,19 +124,19 @@
 }
 
 .hero a:hover {
-  background-color: transparent;
-  color: var(--color-white);
+  background-color: var(--color-white);
+  color: var(--color-text);
   text-decoration: none;
 }
 
 @media (width >= 900px) {
   .hero {
-    min-height: 680px;
+    min-height: 580px;
   }
 
   .hero > div:last-child {
-    min-height: 680px;
-    padding: var(--space-80) 72px;
+    min-height: 580px;
+    padding: var(--space-48) 72px var(--space-64);
   }
 
   .hero h2 {

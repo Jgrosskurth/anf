@@ -108,11 +108,11 @@ footer .footer .section:last-child a:hover {
   }
 }
 
-/* desktop — wider columns and padding */
+/* desktop — 5-column layout */
 @media (width >= 900px) {
   footer .footer .section:first-child .default-content-wrapper {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: var(--space-40);
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--space-32);
   }
 
   footer .footer .section:first-child {

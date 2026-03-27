@@ -236,14 +236,14 @@ header nav .nav-sections ul > li > a:hover {
 
   header nav .nav-sections .default-content-wrapper > ul {
     display: flex;
-    gap: var(--space-16);
+    gap: var(--space-4);
     margin: 0;
   }
 
   header nav .nav-sections ul > li > a {
     display: inline-block;
-    padding: var(--space-8) var(--space-4);
-    font-size: var(--text-sm);
+    padding: var(--space-8) 6px;
+    font-size: var(--text-xs);
     font-weight: var(--weight-medium);
     letter-spacing: 0.04em;
     border-bottom: 2px solid transparent;
