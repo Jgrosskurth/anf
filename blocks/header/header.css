@@ -1,80 +1,5 @@
 /* A&F Header — utility bar + nav + promo strip */
 
-/* utility bar — gray band with brand links + sign in */
-header .nav-utility-bar {
-  background-color: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
-  padding: 0 var(--space-24);
-}
-
-header .nav-utility-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: var(--section-max-w);
-  margin: 0 auto;
-  height: 36px;
-}
-
-header .nav-utility-brands {
-  display: flex;
-  gap: var(--space-16);
-}
-
-header .nav-utility-brands a {
-  font-family: var(--body-font-family);
-  font-size: 11px;
-  font-weight: var(--weight-medium);
-  color: var(--color-text-muted);
-  text-decoration: none;
-  text-transform: none;
-  letter-spacing: 0.02em;
-}
-
-header .nav-utility-brands a.active {
-  color: var(--color-text);
-  font-weight: var(--weight-semibold);
-}
-
-header .nav-utility-account a {
-  font-family: var(--body-font-family);
-  font-size: 11px;
-  font-weight: var(--weight-medium);
-  color: var(--color-text-muted);
-  text-decoration: none;
-}
-
-header .nav-utility-account a:hover {
-  text-decoration: underline;
-}
-
-/* promo strip — dark bar with promotional text */
-header .nav-promo-strip {
-  background-color: var(--color-text);
-  color: var(--color-white);
-  text-align: center;
-  padding: var(--space-8) var(--space-24);
-}
-
-header .nav-promo-strip p {
-  margin: 0;
-  font-family: var(--body-font-family);
-  font-size: var(--text-xs);
-  color: var(--color-white);
-  letter-spacing: 0.02em;
-}
-
-header .nav-promo-strip a {
-  color: var(--color-white);
-  font-weight: var(--weight-semibold);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-header .nav-promo-strip a:hover {
-  opacity: 0.8;
-}
-
 header .nav-wrapper {
   background-color: var(--color-bg);
   width: 100%;
@@ -107,10 +32,6 @@ header nav[aria-expanded='true'] {
 }
 
 @media (width >= 900px) {
-  header .nav-utility-bar {
-    padding: 0 72px;
-  }
-
   header nav {
     display: flex;
     justify-content: space-between;
@@ -387,4 +308,85 @@ header nav .nav-tools .icon img {
     width: 22px;
     height: 22px;
   }
+}
+
+/* utility bar — gray band with brand links + sign in */
+header .header .nav-utility-bar {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 var(--space-24);
+}
+
+header .header .nav-utility-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--section-max-w);
+  margin: 0 auto;
+  height: 36px;
+}
+
+header .header .nav-utility-brands {
+  display: flex;
+  gap: var(--space-16);
+}
+
+header .header .nav-utility-brands a:any-link {
+  font-family: var(--body-font-family);
+  font-size: 11px;
+  font-weight: var(--weight-medium);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+header .header .nav-utility-brands a.active {
+  color: var(--color-text);
+  font-weight: var(--weight-semibold);
+}
+
+header .header .nav-utility-account a:any-link {
+  font-family: var(--body-font-family);
+  font-size: 11px;
+  font-weight: var(--weight-medium);
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+header .header .nav-utility-account a:hover {
+  text-decoration: underline;
+}
+
+@media (width >= 900px) {
+  header .header .nav-utility-bar {
+    padding: 0 72px;
+  }
+}
+
+/* promo strip — dark bar with promotional text */
+header .header .nav-promo-strip {
+  background-color: var(--color-text);
+  color: var(--color-white);
+  text-align: center;
+  padding: var(--space-8) var(--space-24);
+}
+
+header .header .nav-promo-strip p {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: var(--text-xs);
+  color: var(--color-white);
+  letter-spacing: 0.02em;
+}
+
+header .header .nav-promo-strip a:any-link {
+  color: var(--color-white);
+  font-weight: var(--weight-semibold);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+header .header .nav-promo-strip a:hover {
+  opacity: 0.8;
 }
