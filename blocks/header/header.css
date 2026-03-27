@@ -1,4 +1,4 @@
-/* A&F Header — 88px sticky nav, 3-zone layout */
+/* A&F Header — 88px nav, 3-zone layout */
 
 header .nav-wrapper {
   background-color: var(--color-bg);
@@ -41,7 +41,7 @@ header nav[aria-expanded='true'] {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 0 var(--space-32);
+    gap: 0 var(--space-24);
     max-width: var(--section-max-w);
     padding: 0 72px;
   }
@@ -148,10 +148,9 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
   }
 }
 
-/* brand / logo — center on mobile, left on desktop */
+/* brand / logo */
 header .nav-brand {
   grid-area: brand;
-  flex-basis: 180px;
   flex-shrink: 0;
   line-height: 1;
   text-align: center;
@@ -160,7 +159,7 @@ header .nav-brand {
 @media (width >= 900px) {
   header .nav-brand {
     text-align: left;
-    flex-basis: 200px;
+    flex-basis: 180px;
   }
 }
 
@@ -172,13 +171,13 @@ header nav .nav-brand a {
 }
 
 header nav .nav-brand img {
-  width: 160px;
+  width: 140px;
   height: auto;
 }
 
 @media (width >= 900px) {
   header nav .nav-brand img {
-    width: 180px;
+    width: 160px;
   }
 }
 
@@ -237,16 +236,16 @@ header nav .nav-sections ul > li > a:hover {
 
   header nav .nav-sections .default-content-wrapper > ul {
     display: flex;
-    gap: var(--space-24);
+    gap: var(--space-16);
     margin: 0;
   }
 
   header nav .nav-sections ul > li > a {
     display: inline-block;
-    padding: var(--space-16) var(--space-12);
-    font-size: var(--text-md);
+    padding: var(--space-8) var(--space-4);
+    font-size: var(--text-sm);
     font-weight: var(--weight-medium);
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
     border-bottom: 2px solid transparent;
     transition: border-color var(--duration-base) var(--ease-standard);
   }
@@ -266,21 +265,21 @@ header nav .nav-tools {
   grid-area: tools;
   display: flex;
   align-items: center;
-  gap: var(--space-16);
+  gap: var(--space-12);
 }
 
 header nav .nav-tools p {
   display: flex;
   align-items: center;
-  gap: var(--space-16);
+  gap: var(--space-12);
 }
 
 header nav .nav-tools .icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   min-width: 44px;
   min-height: 44px;
   cursor: pointer;
@@ -292,26 +291,26 @@ header nav .nav-tools .icon:hover {
 }
 
 header nav .nav-tools .icon img {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
 }
 
 @media (width >= 900px) {
   header nav .nav-tools {
-    gap: var(--space-20);
+    gap: var(--space-16);
   }
 
   header nav .nav-tools p {
-    gap: var(--space-20);
+    gap: var(--space-16);
   }
 
   header nav .nav-tools .icon {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
   }
 
   header nav .nav-tools .icon img {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
   }
 }

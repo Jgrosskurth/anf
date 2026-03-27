@@ -1,4 +1,4 @@
-/* Hero Brand — editorial/activewear full-bleed module, 520–700px */
+/* Hero Brand — editorial/activewear full-bleed module */
 
 .hero-brand-container .hero-brand-wrapper {
   max-width: unset;
@@ -67,12 +67,15 @@
   margin-right: auto;
 }
 
+/* brand statement — large serif uppercase like original A&F */
 .hero-brand h2 {
-  font-family: var(--heading-font-family-extended);
+  font-family: var(--heading-font-family-campaign);
   font-size: var(--text-2xl);
-  font-weight: var(--weight-semibold);
+  font-weight: var(--weight-regular);
   line-height: 1.1;
   margin: 0 auto var(--space-8);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .hero-brand p {
@@ -83,13 +86,14 @@
   margin-right: auto;
 }
 
+/* buttons — filled white with dark text */
 .hero-brand a:any-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border: 1px solid var(--color-white);
-  color: var(--color-white);
-  background-color: transparent;
+  color: var(--color-text);
+  background-color: var(--color-white);
   height: var(--button-height);
   padding: var(--button-padding);
   font-family: var(--body-font-family);
@@ -104,8 +108,8 @@
 }
 
 .hero-brand a:hover {
-  background-color: var(--color-white);
-  color: var(--color-text);
+  background-color: transparent;
+  color: var(--color-white);
   text-decoration: none;
 }
 

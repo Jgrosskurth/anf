@@ -1,4 +1,4 @@
-/* Hero — full-bleed image with overlay copy, 760px desktop */
+/* Hero — full-bleed image with overlay copy */
 
 .hero-container .hero-wrapper {
   max-width: unset;
@@ -55,28 +55,34 @@
   margin: var(--space-4);
 }
 
+/* campaign headline — serif italic like original A&F */
 .hero h2 {
-  font-family: var(--heading-font-family-extended);
+  font-family: var(--heading-font-family-campaign);
   font-size: var(--text-3xl);
-  font-weight: var(--weight-semibold);
+  font-weight: var(--weight-regular);
+  font-style: italic;
   color: var(--color-white);
   margin: 0 0 var(--space-8);
   line-height: 1.05;
-  text-transform: uppercase;
+  text-transform: none;
+  letter-spacing: -0.01em;
 }
 
+/* em inside h2 inherits italic */
 .hero h2 em {
   font-style: italic;
-  font-weight: var(--weight-medium);
+  font-weight: var(--weight-regular);
 }
 
 .hero h3 {
-  font-family: var(--heading-font-family-extended);
+  font-family: var(--heading-font-family-campaign);
   font-size: var(--text-lg);
   font-weight: var(--weight-regular);
+  font-style: italic;
   color: var(--color-white);
   margin: 0 0 var(--space-16);
   line-height: 1.2;
+  text-transform: none;
 }
 
 .hero > div:last-child p {
@@ -86,6 +92,7 @@
   margin: var(--space-4) 0;
 }
 
+/* inline logos/graphics in overlay */
 .hero > div:last-child img {
   position: static;
   width: auto;
@@ -95,13 +102,14 @@
   object-fit: contain;
 }
 
+/* buttons — filled white with dark text (matches original A&F) */
 .hero a:any-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border: 1px solid var(--color-white);
-  color: var(--color-white);
-  background-color: transparent;
+  color: var(--color-text);
+  background-color: var(--color-white);
   height: var(--button-height);
   padding: var(--button-padding);
   font-family: var(--body-font-family);
@@ -115,18 +123,18 @@
 }
 
 .hero a:hover {
-  background-color: var(--color-white);
-  color: var(--color-text);
+  background-color: transparent;
+  color: var(--color-white);
   text-decoration: none;
 }
 
 @media (width >= 900px) {
   .hero {
-    min-height: 760px;
+    min-height: 680px;
   }
 
   .hero > div:last-child {
-    min-height: 760px;
+    min-height: 680px;
     padding: var(--space-80) 72px;
   }
 

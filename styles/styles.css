@@ -35,9 +35,11 @@
   /* typography — brand fonts with spec-aligned sizing */
   --font-sans: 'Trade Gothic', trade-gothic-fallback, sans-serif;
   --font-serif: 'Trade Gothic Extended', trade-gothic-ext-fallback, sans-serif;
+  --font-campaign: 'Garamond Premier Pro', 'Adobe Garamond Pro', 'EB Garamond', 'Cormorant Garamond', 'Garamond', 'Times New Roman', serif;
   --body-font-family: var(--font-sans);
   --heading-font-family: var(--font-sans);
   --heading-font-family-extended: var(--font-serif);
+  --heading-font-family-campaign: var(--font-campaign);
   --heading-font-family-condensed: 'Trade Gothic Condensed', trade-gothic-cond-fallback, sans-serif;
 
   /* type scale */
