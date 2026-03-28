@@ -383,6 +383,16 @@ main > .section:first-of-type {
   }
 }
 
+/* breathing room between block wrappers inside a section */
+main > .section > div + div {
+  margin-top: var(--space-24);
+}
+
+/* consecutive full-bleed heroes flow flush */
+main > .section > .hero-wrapper + .hero-wrapper {
+  margin-top: 0;
+}
+
 /* section metadata variants */
 main .section.light,
 main .section.highlight {

@@ -93,7 +93,7 @@ footer .footer .section:last-child a:hover {
 @media (width >= 600px) {
   footer .footer .section:first-child .default-content-wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: var(--space-32);
   }
 
@@ -108,10 +108,10 @@ footer .footer .section:last-child a:hover {
   }
 }
 
-/* desktop — match available column count */
+/* desktop — wider columns with proper spacing */
 @media (width >= 900px) {
   footer .footer .section:first-child .default-content-wrapper {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: var(--space-48);
   }
 
