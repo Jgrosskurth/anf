@@ -120,5 +120,11 @@ export default function decorate(block) {
   });
 
   track.addEventListener('scroll', () => requestAnimationFrame(updateArrows));
-  requestAnimationFrame(updateArrows);
+
+  // Update arrows once the carousel is visible and laid out
+  const observer = new ResizeObserver(() => {
+    updateArrows();
+    if (track.scrollWidth > track.clientWidth) observer.disconnect();
+  });
+  observer.observe(track);
 }
