@@ -30,8 +30,24 @@ export default async function decorate(block) {
       // Build column divs
       const columns = pairs.map(({ h4, ul }) => {
         const col = document.createElement('div');
-        col.append(h4);
-        if (ul) col.append(ul);
+        const heading = h4.textContent.trim().toLowerCase();
+
+        // Turn "Subscribe" column into an email form
+        if (heading === 'subscribe') {
+          col.className = 'footer-subscribe';
+          col.append(h4);
+          const form = document.createElement('form');
+          form.className = 'footer-subscribe-form';
+          form.setAttribute('action', '#');
+          form.innerHTML = `
+            <input type="email" placeholder="Email Address" aria-label="Email Address" required>
+            <button type="submit">Join</button>
+          `;
+          col.append(form);
+        } else {
+          col.append(h4);
+          if (ul) col.append(ul);
+        }
         return col;
       });
 

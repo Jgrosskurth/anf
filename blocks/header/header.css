@@ -364,29 +364,30 @@ header .header .nav-utility-account a:hover {
   }
 }
 
-/* promo strip — dark bar with promotional text */
+/* promo strip — light bar with promotional text */
 header .header .nav-promo-strip {
-  background-color: var(--color-text);
-  color: var(--color-white);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   text-align: center;
   padding: var(--space-8) var(--space-24);
+  border-bottom: 1px solid var(--color-border);
 }
 
 header .header .nav-promo-strip p {
   margin: 0;
   font-family: var(--body-font-family);
   font-size: var(--text-xs);
-  color: var(--color-white);
+  color: var(--color-text-muted);
   letter-spacing: 0.02em;
 }
 
 header .header .nav-promo-strip a:any-link {
-  color: var(--color-white);
+  color: var(--color-text);
   font-weight: var(--weight-semibold);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
 header .header .nav-promo-strip a:hover {
-  opacity: 0.8;
+  opacity: 0.7;
 }
