@@ -152,8 +152,8 @@ footer .footer .section:last-child a:hover {
 @media (width >= 600px) {
   footer .footer .section:first-child .default-content-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: var(--space-32);
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: var(--space-24);
   }
 
   footer .footer h4 {
@@ -167,11 +167,11 @@ footer .footer .section:last-child a:hover {
   }
 }
 
-/* desktop — wider columns with proper spacing */
+/* desktop — fit all columns in one row */
 @media (width >= 900px) {
   footer .footer .section:first-child .default-content-wrapper {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: var(--space-48);
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: var(--space-16);
   }
 
   footer .footer .section:first-child {
