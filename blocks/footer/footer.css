@@ -110,6 +110,37 @@ footer .footer .footer-subscribe-form button:hover {
   opacity: 0.8;
 }
 
+/* social icons row */
+footer .footer .footer-connect .footer-social-icons {
+  display: flex;
+  gap: var(--space-12);
+  margin-top: var(--space-8);
+}
+
+footer .footer .footer-connect .footer-social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+footer .footer .footer-connect .footer-social-icons .icon {
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+}
+
+footer .footer .footer-connect .footer-social-icons .icon img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.6;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+
+footer .footer .footer-connect .footer-social-icons a:hover .icon img {
+  opacity: 1;
+}
+
 /* legal section */
 footer .footer .section:last-child {
   padding: var(--space-24);

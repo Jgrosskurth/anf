@@ -44,6 +44,31 @@ export default async function decorate(block) {
             <button type="submit">Join</button>
           `;
           col.append(form);
+        } else if (heading === 'connect') {
+          // Turn "Connect" links into social icons
+          col.className = 'footer-connect';
+          col.append(h4);
+          if (ul) {
+            const iconMap = {
+              instagram: 'instagram',
+              tiktok: 'tiktok',
+              facebook: 'facebook',
+              pinterest: 'pinterest',
+              youtube: 'youtube',
+            };
+            const iconRow = document.createElement('div');
+            iconRow.className = 'footer-social-icons';
+            ul.querySelectorAll('a').forEach((a) => {
+              const label = a.textContent.trim();
+              const iconName = iconMap[label.toLowerCase()];
+              if (iconName) {
+                a.innerHTML = `<span class="icon icon-${iconName}"><img data-icon-name="${iconName}" src="/icons/${iconName}.svg" alt="${label}" loading="lazy"></span>`;
+                a.setAttribute('aria-label', label);
+              }
+              iconRow.append(a);
+            });
+            col.append(iconRow);
+          }
         } else {
           col.append(h4);
           if (ul) col.append(ul);
