@@ -151,8 +151,7 @@
 
 body {
   display: none;
-  margin: 0 auto;
-  max-width: 1440px;
+  margin: 0;
   background-color: var(--color-bg);
   color: var(--color-text-muted);
   font-family: var(--body-font-family);

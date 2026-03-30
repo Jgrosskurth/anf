@@ -364,30 +364,29 @@ header .header .nav-utility-account a:hover {
   }
 }
 
-/* promo strip — light bar with promotional text */
+/* promo strip — blue sitewide bar */
 header .header .nav-promo-strip {
-  background-color: var(--color-bg);
-  color: var(--color-text);
+  background-color: var(--brand-navy);
+  color: var(--color-white);
   text-align: center;
   padding: var(--space-8) var(--space-24);
-  border-bottom: 1px solid var(--color-border);
 }
 
 header .header .nav-promo-strip p {
   margin: 0;
   font-family: var(--body-font-family);
   font-size: var(--text-xs);
-  color: var(--color-text-muted);
+  color: var(--color-white);
   letter-spacing: 0.02em;
 }
 
 header .header .nav-promo-strip a:any-link {
-  color: var(--color-text);
+  color: var(--color-white);
   font-weight: var(--weight-semibold);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
 header .header .nav-promo-strip a:hover {
-  opacity: 0.7;
+  opacity: 0.8;
 }
