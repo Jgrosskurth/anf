@@ -1,23 +1,37 @@
 /**
- * Product Carousel — horizontal slider of product cards
+ * Product Carousel — tabbed horizontal slider of product cards
  * Content model:
- *   Row 1: heading text (e.g. "The Linen-Blend Denim Collection")
- *   Rows 2+: product image | product name | original price | sale price | product URL
+ *   Row 1: tab labels (each cell = one tab label)
+ *   Rows 2+: product image | badge text | product name | product URL
  */
 export default function decorate(block) {
   const rows = [...block.children];
   if (!rows.length) return;
 
-  // First row is the carousel heading
-  const headingRow = rows.shift();
-  const headingText = headingRow?.textContent?.trim();
-  const heading = document.createElement('div');
-  heading.className = 'product-carousel-heading';
-  if (headingText) {
-    const h2 = document.createElement('h2');
-    h2.textContent = headingText;
-    heading.append(h2);
-  }
+  // First row is the tab labels
+  const tabRow = rows.shift();
+  const tabCells = [...tabRow.children];
+  const tabs = document.createElement('div');
+  tabs.className = 'product-carousel-tabs';
+
+  tabCells.forEach((cell, i) => {
+    const label = cell.textContent.trim();
+    if (!label) return;
+    const btn = document.createElement('button');
+    btn.className = `product-carousel-tab${i === 0 ? ' active' : ''}`;
+    btn.textContent = label;
+    btn.setAttribute('role', 'tab');
+    btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+    btn.addEventListener('click', () => {
+      tabs.querySelectorAll('.product-carousel-tab').forEach((t) => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+    });
+    tabs.append(btn);
+  });
 
   // Build product track
   const track = document.createElement('div');
@@ -34,52 +48,33 @@ export default function decorate(block) {
     const imgWrap = document.createElement('div');
     imgWrap.className = 'product-card-image';
     const pic = cols[0]?.querySelector('picture') || cols[0]?.querySelector('img');
-    if (pic) {
-      imgWrap.append(pic.cloneNode(true));
-    }
+    if (pic) imgWrap.append(pic.cloneNode(true));
+    card.append(imgWrap);
 
     // Info section
     const info = document.createElement('div');
     info.className = 'product-card-info';
 
-    // Name (col 1)
-    const name = document.createElement('p');
-    name.className = 'product-card-name';
-    name.textContent = cols[1]?.textContent?.trim() || '';
-
-    // Prices (col 2 = original, col 3 = sale)
-    const priceWrap = document.createElement('div');
-    priceWrap.className = 'product-card-prices';
-
-    const originalPrice = cols[2]?.textContent?.trim() || '';
-    const salePrice = cols[3]?.textContent?.trim() || '';
-
-    if (salePrice && salePrice !== originalPrice) {
-      const origEl = document.createElement('span');
-      origEl.className = 'price-original';
-      origEl.textContent = originalPrice;
-      const saleEl = document.createElement('span');
-      saleEl.className = 'price-sale';
-      saleEl.textContent = salePrice;
-      const badge = document.createElement('span');
-      badge.className = 'price-badge';
-      badge.textContent = 'Sale Price';
-      priceWrap.append(origEl, saleEl, badge);
-    } else {
-      const priceEl = document.createElement('span');
-      priceEl.className = 'price-current';
-      priceEl.textContent = originalPrice;
-      priceWrap.append(priceEl);
+    // Badge (col 1)
+    const badgeText = cols[1]?.textContent?.trim();
+    if (badgeText) {
+      const badge = document.createElement('p');
+      badge.className = 'product-card-badge';
+      badge.textContent = badgeText;
+      info.append(badge);
     }
 
-    // Link (col 4)
-    const link = cols[4]?.querySelector('a') || cols[4];
-    const url = link?.href || link?.querySelector?.('a')?.href || '#';
+    // Name (col 2)
+    const name = document.createElement('p');
+    name.className = 'product-card-name';
+    name.textContent = cols[2]?.textContent?.trim() || '';
+    info.append(name);
 
-    info.append(name, priceWrap);
-    card.append(imgWrap, info);
+    card.append(info);
 
-    // Wrap in link if URL available
+    // Wrap in link if URL in col 3
+    const linkEl = cols[3]?.querySelector('a');
+    const url = linkEl?.href || cols[3]?.textContent?.trim() || '';
     if (url && url !== '#') {
       const a = document.createElement('a');
       a.href = url;
@@ -92,9 +87,6 @@ export default function decorate(block) {
   });
 
   // Navigation arrows
-  const nav = document.createElement('div');
-  nav.className = 'product-carousel-nav';
-
   const prevBtn = document.createElement('button');
   prevBtn.className = 'carousel-arrow carousel-prev';
   prevBtn.setAttribute('aria-label', 'Previous products');
@@ -105,39 +97,28 @@ export default function decorate(block) {
   nextBtn.setAttribute('aria-label', 'Next products');
   nextBtn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5l7 7-7 7"/></svg>';
 
-  nav.append(prevBtn, nextBtn);
-
   // Clear block and rebuild
   block.textContent = '';
-  block.append(heading, track, nav);
+  block.append(tabs, track, prevBtn, nextBtn);
 
   // Slider logic
-  let scrollPos = 0;
-  const cardWidth = 260;
-  const gap = 16;
-  const step = cardWidth + gap;
-
   function updateArrows() {
-    prevBtn.disabled = scrollPos <= 0;
+    prevBtn.disabled = track.scrollLeft <= 0;
     const maxScroll = track.scrollWidth - track.clientWidth;
-    nextBtn.disabled = scrollPos >= maxScroll - 1;
+    nextBtn.disabled = track.scrollLeft >= maxScroll - 1;
   }
 
+  const step = 280;
+
   prevBtn.addEventListener('click', () => {
-    scrollPos = Math.max(0, track.scrollLeft - step * 2);
-    track.scrollTo({ left: scrollPos, behavior: 'smooth' });
+    track.scrollTo({ left: Math.max(0, track.scrollLeft - step * 2), behavior: 'smooth' });
   });
 
   nextBtn.addEventListener('click', () => {
-    scrollPos = Math.min(track.scrollWidth - track.clientWidth, track.scrollLeft + step * 2);
-    track.scrollTo({ left: scrollPos, behavior: 'smooth' });
+    const max = track.scrollWidth - track.clientWidth;
+    track.scrollTo({ left: Math.min(max, track.scrollLeft + step * 2), behavior: 'smooth' });
   });
 
-  track.addEventListener('scroll', () => {
-    scrollPos = track.scrollLeft;
-    updateArrows();
-  });
-
-  // Initial state
+  track.addEventListener('scroll', () => requestAnimationFrame(updateArrows));
   requestAnimationFrame(updateArrows);
 }
