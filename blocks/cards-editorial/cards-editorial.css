@@ -145,9 +145,23 @@
   }
 }
 
-/* 2-up editorial cards — landscape ratio for wider columns */
+/* 2-up editorial cards — tall portrait ratio for full-bleed look */
 @media (width >= 600px) {
+  .cards-editorial > ul:not(:has(> li:nth-child(3))) {
+    gap: 0;
+  }
+
   .cards-editorial > ul:not(:has(> li:nth-child(3))) > li img {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3 / 4;
+  }
+}
+
+@media (width >= 900px) {
+  .cards-editorial > ul:not(:has(> li:nth-child(3))) > li img {
+    aspect-ratio: 1 / 1;
+  }
+
+  .cards-editorial > ul:not(:has(> li:nth-child(3))) .cards-editorial-card-body h3 {
+    font-size: var(--text-2xl);
   }
 }

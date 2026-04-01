@@ -98,8 +98,8 @@
   position: static;
   width: auto;
   height: auto;
-  max-width: 280px;
-  max-height: 80px;
+  max-width: 90%;
+  max-height: 100px;
   object-fit: contain;
 }
 
@@ -146,8 +146,8 @@
   }
 
   .hero > div:last-child img {
-    max-width: 400px;
-    max-height: 100px;
+    max-width: 500px;
+    max-height: 120px;
   }
 }
 

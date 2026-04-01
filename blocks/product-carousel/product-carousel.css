@@ -45,15 +45,24 @@
   border-bottom-color: var(--color-text);
 }
 
+/* track container holds all tabs' tracks */
+.product-carousel-tracks {
+  position: relative;
+}
+
 /* scrollable track */
 .product-carousel-track {
-  display: flex;
+  display: none;
   gap: var(--space-16);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
+}
+
+.product-carousel-track.active {
+  display: flex;
 }
 
 .product-carousel-track::-webkit-scrollbar {
@@ -133,6 +142,29 @@
 
 .product-carousel .product-card-link:hover .product-card-name {
   text-decoration: underline;
+}
+
+/* price display */
+.product-carousel .product-card-prices {
+  margin-top: var(--space-4);
+  display: flex;
+  gap: var(--space-8);
+  font-family: var(--body-font-family);
+  font-size: var(--text-xs);
+}
+
+.product-carousel .product-card-price {
+  color: var(--color-text);
+}
+
+.product-carousel .product-card-price-original {
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+
+.product-carousel .product-card-price-sale {
+  color: var(--color-sale, #c00);
+  font-weight: var(--weight-semibold);
 }
 
 /* navigation arrows — floating at track edges */
