@@ -2296,7 +2296,9 @@ window.hero_tout_decorate = async function(block) {
     headlineDiv.className = 'hero-tout-headline';
     const headlineImg = headlineRow.querySelector('img');
     if (headlineImg) {
-      headlineDiv.appendChild(headlineImg.cloneNode(true));
+      const clonedImg = headlineImg.cloneNode(true);
+      clonedImg.style.cssText = 'display:block;width:320px;height:auto;margin-bottom:12px;';
+      headlineDiv.appendChild(clonedImg);
     }
     overlay.appendChild(headlineDiv);
   }
@@ -2403,7 +2405,7 @@ window.hero_tout_2_decorate = async function(block) {
   bgWrap.className = 'hero-tout-2-bg';
   bgWrap.style.cssText = 'position:relative;width:100%;';
   if(bgImg) {
-    bgImg.style.cssText = 'display:block;width:100%;max-height:861px;object-fit:cover;';
+    bgImg.style.cssText = 'display:block;width:100%;max-height:861px;min-height:400px;object-fit:cover;';
     bgWrap.append(bgImg);
   }
   
