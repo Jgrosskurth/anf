@@ -1744,68 +1744,268 @@ header .header, footer .footer { visibility: visible !important; }
     display: none !important;
   }
 }
-/* ===== SOURCE FIDELITY FIXES ===== */
 
-/* Typekit fonts - ensure DS Trade Gothic loads correctly */
+/* ===== SOURCE FIDELITY FIXES v2 ===== */
+
+/* Font variables */
 :root {
   --heading-font-family: "DS Trade Gothic", "Trade Gothic", trade-gothic-next, sans-serif;
   --body-font-family: garamond-premier-pro, "Garamond Premier Pro", serif;
   --brand-navy: rgb(37, 55, 70);
   --color-text-muted: rgb(94, 94, 94);
+  --color-red: rgb(152, 20, 32);
   --space-16: 16px;
   --space-8: 8px;
   --space-12: 12px;
   --space-24: 24px;
-  --font-sans: "DS Trade Gothic", "Trade Gothic", sans-serif;
 }
-
-/* Body */
 body { font-family: var(--heading-font-family); color: var(--color-text-muted); background: #fff; }
 
-/* Promo banner - white bg, dark navy text, garamond for event name */
-.promo-banner { background: #fff !important; padding: 24px 72px; }
-.promo-banner em { font-family: garamond-premier-pro, serif; font-style: italic; font-size: 20px; color: var(--brand-navy); display: block; margin-bottom: 4px; }
-.promo-banner h2 { font-family: garamond-premier-pro, serif; font-size: 45px; font-weight: 400; color: var(--brand-navy); line-height: 1.1; margin: 0 0 16px 0; }
-.promo-banner a { font-family: "DS Trade Gothic", sans-serif; font-size: 13px; letter-spacing: 0.6px; color: var(--brand-navy); text-decoration: underline; margin-right: 24px; text-transform: uppercase; }
-.promo-banner p { margin: 0 0 8px 0; }
+/* ── Promo Banner ── */
+.promo-banner-wrapper { padding: 0 !important; }
+.promo-banner { background: #fff !important; padding: 0 72px !important; }
+.promo-banner > div:first-child { padding-top: 40px; }
+.promo-banner > div:last-child { padding-bottom: 32px; }
+.promo-banner em {
+  display: block;
+  font-family: garamond-premier-pro, serif;
+  font-style: italic;
+  font-size: 35px;
+  color: var(--brand-navy);
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+.promo-banner h2 {
+  font-family: garamond-premier-pro, serif;
+  font-size: 45px;
+  font-weight: 400;
+  color: var(--brand-navy);
+  line-height: 1.928;
+  margin: 0 0 12px;
+}
+.promo-banner a {
+  font-family: "DS Trade Gothic", sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.6px;
+  color: var(--brand-navy);
+  text-decoration: underline;
+  margin-right: 24px;
+  text-transform: uppercase;
+}
+.promo-banner p { margin: 0; }
 
-/* Hero tout - text must be white over the image */
-.hero-tout-overlay { color: #fff; }
-.hero-tout-subcopy { font-family: "DS Trade Gothic", sans-serif; font-size: 18px; color: #fff; }
-.hero-tout-ctas a { font-family: "DS Trade Gothic", sans-serif; font-size: 13px; letter-spacing: 0.6px; color: #fff; text-decoration: underline; margin-right: 24px; }
+/* ── Hero Tout ── */
+.hero-tout-wrapper { padding: 0 !important; max-width: 100% !important; }
+.hero-tout { position: relative; overflow: hidden; }
+.hero-tout-bg { position: relative; width: 100%; }
+.hero-tout-bg img { display: block; width: 100%; height: 100%; object-fit: cover; max-height: 861px; }
+.hero-tout-overlay {
+  position: absolute;
+  bottom: 0; left: 0;
+  padding: 25px;
+  color: #fff;
+  max-width: 600px;
+}
+.hero-tout-headline img { display: block; width: 320px; height: auto; margin-bottom: 12px; }
+.hero-tout-subcopy {
+  font-family: "DS Trade Gothic", sans-serif;
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+.hero-tout-ctas a {
+  font-family: "DS Trade Gothic", sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.6px;
+  color: #fff;
+  text-decoration: underline;
+  margin-right: 24px;
+  text-transform: uppercase;
+}
 
-/* Nav links */
-.header.block nav a { font-family: "DS Trade Gothic", "Trade Gothic", sans-serif; letter-spacing: 0.6px; }
-.nav-promo-strip a { font-family: "DS Trade Gothic", sans-serif; font-size: 12px; letter-spacing: 0.6px; color: #fff; text-decoration: underline; margin-left: 8px; }
-.nav-promo-strip { font-family: "DS Trade Gothic", sans-serif; font-size: 12px; letter-spacing: 0.3px; }
+/* ── Product Recs ── */
+.product-recs-wrapper { padding: 0 !important; }
+.product-recs { padding: 0; background: #fff; }
+.product-recs-title { text-align: center; padding: 48px 72px 16px; }
+.product-recs-title h2 {
+  font-family: garamond-premier-pro, serif;
+  font-size: 45px;
+  font-weight: 400;
+  color: var(--brand-navy);
+  margin: 0;
+}
+.product-recs-tabs { padding: 0 72px; border-bottom: 1px solid #e5e5e0; margin-bottom: 24px; }
+.product-recs-tablist { display: flex; gap: 0; }
+.product-recs-tablist button {
+  font-family: "DS Trade Gothic", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  color: var(--color-text-muted);
+  background: none; border: none; border-bottom: 2px solid transparent;
+  cursor: pointer; padding: 12px 16px; margin-bottom: -1px;
+}
+.product-recs-tablist button[aria-selected="true"] {
+  border-bottom-color: var(--brand-navy);
+  color: var(--brand-navy); font-weight: 700;
+}
+/* Horizontal scroll carousel */
+.product-recs-cards {
+  display: flex !important;
+  flex-direction: row !important;
+  overflow-x: auto;
+  gap: 1px;
+  padding: 0 72px 48px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.product-recs-cards::-webkit-scrollbar { display: none; }
+.product-recs-card {
+  flex: 0 0 calc(20% - 1px);
+  min-width: 240px;
+  scroll-snap-align: start;
+  display: flex !important;
+  flex-direction: column !important;
+}
+.product-recs-card-image img {
+  display: block; width: 100%; aspect-ratio: 2/3; object-fit: cover;
+}
+.product-recs-card-info { padding: 8px 0; }
+.product-recs-badge {
+  font-family: "DS Trade Gothic", sans-serif;
+  font-size: 10px; letter-spacing: 0.6px;
+  text-transform: uppercase; color: var(--brand-navy);
+  margin: 0 0 2px;
+}
+.product-recs-card-info h3 {
+  font-family: "DS Trade Gothic", sans-serif;
+  font-size: 12px; font-weight: 400; letter-spacing: 0.3px;
+  color: var(--brand-navy); margin: 0 0 4px;
+}
+.product-recs-card-info p { font-size: 12px; color: var(--color-text-muted); margin: 0 0 2px; }
+.product-recs-promo { color: var(--color-red) !important; font-size: 11px !important; }
+/* Hide "Shop Now" link - source doesn't show it */
+.product-recs-card-info p:last-child { display: none; }
 
-/* Product recs heading */
-.product-recs-title h2 { font-family: garamond-premier-pro, serif; font-size: 45px; font-weight: 400; color: var(--brand-navy); text-align: center; }
-.product-recs-tablist button { font-family: "DS Trade Gothic", sans-serif; font-size: 12px; letter-spacing: 0.6px; color: var(--color-text-muted); background: none; border: none; cursor: pointer; padding: 8px 16px; border-bottom: 2px solid transparent; }
-.product-recs-tablist button[aria-selected="true"] { border-bottom-color: var(--brand-navy); color: var(--brand-navy); font-weight: 700; }
-.product-recs-card-info h3 { font-family: "DS Trade Gothic", sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 0.3px; color: var(--brand-navy); margin: 4px 0; }
-.product-recs-card-info p { font-family: "DS Trade Gothic", sans-serif; font-size: 12px; color: var(--color-text-muted); margin: 2px 0; }
-.product-recs-badge { font-size: 10px !important; letter-spacing: 0.6px; text-transform: uppercase; }
-.product-recs-promo { color: #981420 !important; font-size: 11px !important; }
+/* ── YPB Hero Tout-2 ── */
+.hero-tout-2-wrapper { padding: 0 !important; max-width: 100% !important; }
+.hero-tout-2 { position: relative; overflow: hidden; }
+.hero-tout-2 > div > div:first-child { position: relative; }
+.hero-tout-2 > div > div:first-child img:first-child { display: block; width: 100%; max-height: 861px; object-fit: cover; }
+.hero-tout-2 > div > div:nth-child(2) { position: absolute; bottom: 25px; left: 25px; }
+.hero-tout-2 > div > div:nth-child(2) img { width: 200px; height: auto; display: block; margin-bottom: 12px; }
+.hero-tout-2 > div > div:nth-child(3) { position: absolute; bottom: 25px; left: 25px; padding-top: 80px; }
+.hero-tout-2 a {
+  font-family: "DS Trade Gothic", sans-serif; font-size: 13px;
+  letter-spacing: 0.6px; color: #fff; text-decoration: underline;
+  margin-right: 24px; text-transform: uppercase;
+}
 
-/* YPB / hero-tout-2 */
-.hero-tout-2 a { color: #fff; text-decoration: underline; font-family: "DS Trade Gothic", sans-serif; font-size: 13px; letter-spacing: 0.6px; margin-right: 16px; }
-
-/* Rewards / legal strip */
-.rewards-banner { background: #f7f7f5; padding: 12px 72px; font-size: 10px; color: var(--color-text-muted); font-family: "DS Trade Gothic", sans-serif; }
+/* ── Rewards / Legal Strip ── */
+.rewards-banner-wrapper { padding: 0 !important; }
+.rewards-banner {
+  background: #fff !important; padding: 16px 72px !important;
+  font-size: 10px; color: var(--color-text-muted);
+  font-family: "DS Trade Gothic", sans-serif;
+  border-top: 1px solid #e5e5e0;
+}
+.rewards-banner p { margin: 0 0 2px; }
 .rewards-banner a { color: var(--brand-navy); text-decoration: underline; font-size: 10px; }
-.rewards-banner p { margin: 2px 0; }
 
-/* Footer */
-footer .footer { background: #fff; border-top: 1px solid #e5e5e0; }
-footer .footer h4 { font-family: "DS Trade Gothic", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--brand-navy); margin-bottom: 12px; }
-footer .footer a { font-family: "DS Trade Gothic", sans-serif; font-size: 12px; color: var(--color-text-muted); text-decoration: none; display: block; padding: 3px 0; }
+/* ── Footer ── */
+footer .footer { background: rgb(246, 246, 246); }
+.footer-brand-row {
+  display: flex; align-items: center; gap: 24px;
+  padding: 32px 72px 24px;
+  border-bottom: 1px solid #e5e5e0;
+}
+.footer-brand-row a { display: flex; align-items: center; }
+.footer-brand-row img { height: 20px; width: auto; filter: brightness(0); }
+footer .footer .section:first-child .default-content-wrapper {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 32px;
+  padding: 40px 72px 32px;
+}
+footer .footer h4 {
+  font-family: "DS Trade Gothic", sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.6px;
+  text-transform: uppercase; color: var(--brand-navy);
+  margin: 0 0 16px;
+}
+footer .footer a {
+  font-family: "DS Trade Gothic", sans-serif; font-size: 12px;
+  color: var(--color-text-muted); text-decoration: none; display: block; padding: 3px 0;
+}
 footer .footer a:hover { text-decoration: underline; }
-footer .footer .footer-subscribe input { font-size: 12px; border: 1px solid #ccc; padding: 8px 12px; width: 180px; font-family: "DS Trade Gothic", sans-serif; }
-footer .footer .footer-subscribe button { background: var(--brand-navy); color: #fff; border: none; padding: 8px 16px; font-family: "DS Trade Gothic", sans-serif; font-size: 12px; letter-spacing: 0.6px; cursor: pointer; }
-footer .section:last-child { border-top: 1px solid #e5e5e0; font-size: 11px; text-align: center; color: var(--color-text-muted); padding: 16px 72px; }
-footer .section:last-child a { font-size: 11px; color: var(--color-text-muted); text-decoration: none; display: inline; padding: 0; }
-footer .section:last-child a:hover { text-decoration: underline; }
+.footer-subscribe { display: flex; flex-direction: column; }
+.footer-subscribe-form { display: flex; margin-top: 8px; }
+.footer-subscribe-form input {
+  font-size: 12px; border: 1px solid #ccc; border-right: none;
+  padding: 10px 12px; flex: 1; font-family: "DS Trade Gothic", sans-serif;
+  outline: none; background: #fff;
+}
+.footer-subscribe-form button {
+  background: var(--brand-navy); color: #fff; border: 1px solid var(--brand-navy);
+  padding: 10px 16px; font-family: "DS Trade Gothic", sans-serif;
+  font-size: 12px; letter-spacing: 0.6px; cursor: pointer; text-transform: uppercase;
+}
+.footer-connect .footer-social-icons {
+  display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px;
+}
+.footer-connect .footer-social-icons a {
+  display: inline-flex; padding: 0;
+}
+.footer-connect .footer-social-icons img { width: 20px; height: 20px; filter: brightness(0); }
+footer .footer .section:last-child {
+  border-top: 1px solid #e5e5e0; background: rgb(246,246,246);
+  padding: 20px 72px; text-align: center;
+}
+footer .footer .section:last-child p {
+  font-family: "DS Trade Gothic", sans-serif; font-size: 11px;
+  color: var(--color-text-muted); margin: 0 0 6px;
+}
+footer .footer .section:last-child a {
+  font-size: 11px; color: var(--color-text-muted);
+  text-decoration: none; display: inline; padding: 0 6px;
+  border-right: 1px solid #ccc;
+}
+footer .footer .section:last-child a:last-child { border-right: none; }
+footer .footer .section:last-child a:hover { text-decoration: underline; }
+
+/* ── Nav ── */
+.nav-utility-bar { background: #f6f6f6; }
+.nav-utility-inner { display: flex; justify-content: space-between; align-items: center; padding: 0 72px; height: 40px; font-size: 12px; font-family: "DS Trade Gothic", sans-serif; letter-spacing: 0.3px; }
+.nav-utility-brands { display: flex; gap: 16px; }
+.nav-utility-brands a { font-size: 12px; color: var(--color-text-muted); text-decoration: none; }
+.nav-utility-brands a.active { color: var(--brand-navy); font-weight: 700; }
+.nav-utility-account a { font-size: 12px; color: var(--brand-navy); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+.nav-wrapper { border-bottom: 1px solid #e5e5e0; }
+.nav-brand a img { width: 228px !important; height: 19px !important; }
+.nav-tools .icon img { width: 22px; height: 22px; }
+.nav-promo-strip {
+  background: var(--brand-navy); color: #fff;
+  font-family: "DS Trade Gothic", sans-serif; font-size: 12px;
+  letter-spacing: 0.3px; text-align: center; padding: 14px 72px;
+}
+.nav-promo-strip p { margin: 0; color: #fff; }
+.nav-promo-strip a { color: #fff; text-decoration: underline; letter-spacing: 0.6px; margin-left: 12px; }
+
+/* Mobile */
+@media (width < 900px) {
+  .header.block nav[aria-expanded='true'] { min-height: 100dvh; height: auto; overflow-y: auto; display: grid; grid-template: 'hamburger brand tools' var(--nav-height) 'sections sections sections' 1fr / auto 1fr auto; }
+  .header.block nav[aria-expanded='true'] .nav-sections { display: block !important; visibility: visible !important; padding: 0 16px; }
+  .header.block nav[aria-expanded='false'] .nav-sections { display: none !important; }
+  .promo-banner { padding: 24px 16px !important; }
+  .promo-banner em { font-size: 24px; }
+  .promo-banner h2 { font-size: 28px; }
+  .product-recs-cards { padding: 0 16px 32px; }
+  .product-recs-card { flex: 0 0 60vw; }
+  footer .footer .section:first-child .default-content-wrapper { grid-template-columns: repeat(2, 1fr); padding: 32px 16px; }
+  .footer-brand-row { padding: 24px 16px; }
+  .nav-utility-inner, .nav-promo-strip { padding: 0 16px; }
+}
 
 </style>
 </head>
@@ -2184,17 +2384,47 @@ window.product_recs_decorate = async function(block) {
 
 // === hero-tout-2 ===
 window.hero_tout_2_decorate = async function(block) {
-  const rows = [...block.children];
-  if (!rows.length) return;
-
-  const row = rows[0];
+  const row = block.querySelector(':scope > div');
+  if(!row) return;
   const cells = [...row.children];
-
-  // cells: [0] = bg image, [1] = logo image, [2] = CTA links
-  // Restructure: logo and CTAs share the overlay area at bottom-left
-  // The CSS grid handles positioning via grid-area overlap
-}
-
+  // cells: [0]=bg image, [1]=logo, [2]=CTAs
+  const bgImg = cells[0]?.querySelector('img');
+  const logoImg = cells[1]?.querySelector('img');
+  const ctaDiv = cells[2];
+  
+  block.innerHTML = '';
+  
+  // Background
+  const bgWrap = document.createElement('div');
+  bgWrap.className = 'hero-tout-2-bg';
+  bgWrap.style.cssText = 'position:relative;width:100%;';
+  if(bgImg) {
+    bgImg.style.cssText = 'display:block;width:100%;max-height:861px;object-fit:cover;';
+    bgWrap.append(bgImg);
+  }
+  
+  // Overlay: logo + CTAs
+  const overlay = document.createElement('div');
+  overlay.style.cssText = 'position:absolute;bottom:32px;left:32px;';
+  
+  if(logoImg) {
+    logoImg.style.cssText = 'display:block;width:200px;height:auto;margin-bottom:16px;';
+    overlay.append(logoImg);
+  }
+  
+  if(ctaDiv) {
+    const ctaWrap = document.createElement('div');
+    ctaWrap.style.cssText = 'display:flex;gap:24px;';
+    ctaDiv.querySelectorAll('a').forEach(a => {
+      a.style.cssText = 'font-family:"DS Trade Gothic",sans-serif;font-size:13px;letter-spacing:0.6px;color:#fff;text-decoration:underline;text-transform:uppercase;';
+      ctaWrap.append(a);
+    });
+    overlay.append(ctaWrap);
+  }
+  
+  bgWrap.append(overlay);
+  block.append(bgWrap);
+};
 
 // === rewards-banner ===
 window.rewards_banner_decorate = async function(block) {
@@ -2205,6 +2435,22 @@ window.rewards_banner_decorate = async function(block) {
 
 // === footer (standalone) ===
 window.footer_decorate = async function(block) {
+  // Add brand logos row before the main footer content
+  const brandRow = document.createElement('div');
+  brandRow.className = 'footer-brand-row';
+  brandRow.innerHTML = `
+    <a href="https://www.abercrombie.com/shop/us" aria-label="Abercrombie and Fitch">
+      <img src="https://img.abercrombie.com/is/image/anf/anf_logo_ANF_horizontal_text_primary.svg" alt="Abercrombie &amp; Fitch">
+    </a>
+    <a href="https://www.abercrombie.com/shop/us/kids" aria-label="abercrombie kids">
+      <img src="https://img.abercrombie.com/is/image/anf/anf_kids_logo_kids_horizontal_text_secondary.svg" alt="abercrombie kids">
+    </a>
+    <a href="https://www.hollisterco.com/" aria-label="Hollister">
+      <img src="https://img.abercrombie.com/is/image/anf/HCO_Logo_Horizontal_Black.svg" alt="Hollister">
+    </a>
+  `;
+  block.parentElement.insertBefore(brandRow, block);
+
   const firstDiv = block.querySelector(':scope > div:first-child');
   if (!firstDiv) return;
   const wrapper = document.createElement('div');
