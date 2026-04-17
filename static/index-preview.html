@@ -1797,15 +1797,18 @@ body { font-family: var(--heading-font-family); color: var(--color-text-muted); 
 /* ── Hero Tout ── */
 .hero-tout-wrapper { padding: 0 !important; max-width: 100% !important; }
 .hero-tout { position: relative; overflow: hidden; }
-.hero-tout-bg { position: relative; width: 100%; }
-.hero-tout-bg img { display: block; width: 100%; height: 100%; object-fit: cover; max-height: 861px; }
+.hero-tout { position: relative !important; }
+.hero-tout-bg { position: relative !important; width: 100%; overflow: hidden; }
+.hero-tout-bg img { display: block !important; width: 100% !important; max-height: 861px !important; object-fit: cover !important; height: 100%; }
 .hero-tout-overlay {
-  position: absolute;
-  bottom: 0; left: 0;
-  padding: 25px;
+  position: absolute !important;
+  bottom: 0 !important; left: 0 !important;
+  padding: 25px !important;
   color: #fff;
   max-width: 600px;
+  width: auto !important;
 }
+.hero-tout-headline img { display: block !important; width: 320px !important; height: auto !important; margin-bottom: 12px; }
 .hero-tout-headline img { display: block; width: 320px; height: auto; margin-bottom: 12px; }
 .hero-tout-subcopy {
   font-family: "DS Trade Gothic", sans-serif;
@@ -1922,6 +1925,7 @@ footer .footer { background: rgb(246, 246, 246); }
 }
 .footer-brand-row a { display: flex; align-items: center; }
 .footer-brand-row img { height: 20px; width: auto; filter: brightness(0); }
+.footer-brand-row a { font-family: "DS Trade Gothic", sans-serif; font-size: 13px; letter-spacing: 0.6px; font-weight: 700; color: var(--brand-navy); text-decoration: none; }
 footer .footer .section:first-child .default-content-wrapper {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -2446,7 +2450,7 @@ window.footer_decorate = async function(block) {
       <img src="https://img.abercrombie.com/is/image/anf/anf_kids_logo_kids_horizontal_text_secondary.svg" alt="abercrombie kids">
     </a>
     <a href="https://www.hollisterco.com/" aria-label="Hollister">
-      <img src="https://img.abercrombie.com/is/image/anf/HCO_Logo_Horizontal_Black.svg" alt="Hollister">
+      HOLLISTER
     </a>
   `;
   block.parentElement.insertBefore(brandRow, block);
