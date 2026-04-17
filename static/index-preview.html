@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Abercrombie & Fitch | EDS Migration Preview</title>
+  <title>Abercrombie &amp; Fitch | EDS Migration Preview</title>
   <link rel="stylesheet" href="https://use.typekit.net/prk2pgw.css">
   <style>
 @import url('brand.css');
@@ -1707,34 +1707,65 @@ footer .footer .section:last-child a:hover {
 
 /* add global styles that can be loaded post LCP here */
 
-
-/* Standalone overrides */
 body { display: block !important; }
-body.appear { display: block !important; }
 header .header, footer .footer { visibility: visible !important; }
-.icon img { display: inline-block; width: 24px; height: 24px; }
   </style>
 </head>
 <body class="appear">
   <header>
     <div class="header block" data-block-name="header" data-block-status="loaded">
-      <div class="nav-utility-bar"><div class="nav-utility-inner">
-        <div class="nav-utility-brands"><a href="/" class="active">A&amp;F</a><a href="https://www.abercrombie.com/shop/us/abercrombie-kids">abercrombie kids</a></div>
-        <div class="nav-utility-account"><a href="https://www.abercrombie.com/shop/us/account">Sign In or Join</a></div>
-      </div></div>
+      <div class="nav-utility-bar">
+        <div class="nav-utility-inner">
+          <div class="nav-utility-brands">
+            <a href="/" class="active">A&amp;F</a>
+            <a href="https://www.abercrombie.com/shop/us/abercrombie-kids">abercrombie kids</a>
+          </div>
+          <div class="nav-utility-account">
+            <a href="https://www.abercrombie.com/shop/us/account">Sign In or Join</a>
+          </div>
+        </div>
+      </div>
       <div class="nav-wrapper">
-        <nav id="nav" aria-expanded="true">
+        <nav id="nav" aria-expanded="false">
+          <div class="nav-hamburger">
+            <button type="button" aria-controls="nav" aria-label="Open navigation">
+              <span class="nav-hamburger-icon"></span>
+            </button>
+          </div>
           <div class="section nav-brand" data-section-status="loaded">
             <div class="default-content-wrapper">
-              <p><a href="https://www.abercrombie.com/shop/us"><img src="https://img.abercrombie.com/is/image/anf/anf_logo_ANF_horizontal_text_primary.svg" alt="Abercrombie &amp; Fitch" style="height:32px"></a></p>
+              <p><a href="https://www.abercrombie.com/shop/us"><img src="https://img.abercrombie.com/is/image/anf/anf_logo_ANF_horizontal_text_primary.svg" alt="Abercrombie &amp; Fitch"></a></p>
             </div>
           </div>
           <div class="section nav-sections" data-section-status="loaded">
             <div class="default-content-wrapper">
               <ul>
-                <li><a href="https://www.abercrombie.com/shop/us/new">New</a></li>
-                <li><a href="https://www.abercrombie.com/shop/us/womens">Women's</a></li>
-                <li><a href="https://www.abercrombie.com/shop/us/mens">Men's</a></li>
+                <li><a href="https://www.abercrombie.com/shop/us/new">New</a>
+                  <ul>
+                    <li><a href="https://www.abercrombie.com/shop/us/womens-new-arrivals">Women's New Arrivals</a></li>
+                    <li><a href="https://www.abercrombie.com/shop/us/mens-new-arrivals">Men's New Arrivals</a></li>
+                  </ul>
+                </li>
+                <li><a href="https://www.abercrombie.com/shop/us/womens">Women's</a>
+                  <ul>
+                    <li><a href="https://www.abercrombie.com/shop/us/womens-new-arrivals">New Arrivals</a></li>
+                    <li><a href="https://www.abercrombie.com/shop/us/womens-tops--1">Tops</a></li>
+                    <li><a href="https://www.abercrombie.com/shop/us/womens-bottoms--1">Bottoms</a></li>
+                    <li><a href="https://www.abercrombie.com/shop/us/womens-dresses-and-jumpsuits">Dresses &amp; Jumpsuits</a></li>
+                    <li><a href="https://www.abercrombie.com/shop/us/womens-matching-sets-dresses-and-rompers">Matching Sets</a></li>
+                    <li><a href="https://www.abercrombie.com/shop/us/womens-activewear">Active</a></li>
+                    <li><a href="https://www.abercrombie.com/shop/us/womens-clearance">Clearance</a></li>
+                  </ul>
+                </li>
+                <li><a href="https://www.abercrombie.com/shop/us/mens">Men's</a>
+                  <ul>
+                    <li><a href="https://www.abercrombie.com/shop/us/mens-new-arrivals">New Arrivals</a></li>
+                    <li><a href="https://www.abercrombie.com/shop/us/mens-tops--1">Tops</a></li>
+                    <li><a href="https://www.abercrombie.com/shop/us/mens-bottoms--1">Bottoms</a></li>
+                    <li><a href="https://www.abercrombie.com/shop/us/mens-activewear">Active</a></li>
+                    <li><a href="https://www.abercrombie.com/shop/us/mens-clearance">Clearance</a></li>
+                  </ul>
+                </li>
                 <li><a href="https://www.abercrombie.com/shop/us/kids">kids</a></li>
                 <li><a href="https://www.abercrombie.com/shop/us/jeans">Jeans</a></li>
                 <li><a href="https://www.abercrombie.com/shop/us/activewear">Active</a></li>
@@ -1746,16 +1777,16 @@ header .header, footer .footer { visibility: visible !important; }
           <div class="section nav-tools" data-section-status="loaded">
             <div class="default-content-wrapper">
               <p>
-                <img src="https://img.abercrombie.com/is/image/anf/anf_icon_search_button_outlined_label_brand.svg" alt="Search" style="height:24px;width:24px">
-                <img src="https://img.abercrombie.com/is/image/anf/anf_icon_heart_default_button_outlined_label_brand.svg" alt="Favorites" style="height:24px;width:24px">
-                <img src="https://img.abercrombie.com/is/image/anf/anf_icon_bag_default_button_outlined_label_brand.svg" alt="Bag" style="height:24px;width:24px">
+                <span class="icon icon-search"><img src="https://img.abercrombie.com/is/image/anf/anf_icon_search_button_outlined_label_brand.svg" alt="Search"></span>
+                <span class="icon icon-heart"><img src="https://img.abercrombie.com/is/image/anf/anf_icon_heart_default_button_outlined_label_brand.svg" alt="Favorites"></span>
+                <span class="icon icon-bag"><img src="https://img.abercrombie.com/is/image/anf/anf_icon_bag_default_button_outlined_label_brand.svg" alt="Bag"></span>
               </p>
             </div>
           </div>
         </nav>
       </div>
       <div class="nav-promo-strip">
-        <p>Perfectly Paired Event: Buy One, Get One 50% Off Everything* | Free Standard Shipping And Handling On All Orders Over $99^
+        <p>Perfectly Paired Event: Buy One, Get One 50% Off Everything* | Free Standard Shipping On All Orders Over $99^
           <a href="https://www.abercrombie.com/shop/us/womens">SHOP WOMEN'S</a>
           <a href="https://www.abercrombie.com/shop/us/mens">SHOP MEN'S</a>
         </p>
@@ -1897,15 +1928,49 @@ header .header, footer .footer { visibility: visible !important; }
       </div>
       <div class="section" data-section-status="loaded">
         <div class="default-content-wrapper">
-          <p>
-            <a href="https://www.abercrombie.com/shop/us/help/privacy-policy">Privacy / Ad Cookies</a> |
-            <a href="https://www.abercrombie.com/shop/us/help/terms-of-use">Sale Terms</a> |
-            <a href="https://www.abercrombie.com/shop/us/help/accessibility">Text Terms</a>
-          </p>
+          <p><a href="https://www.abercrombie.com/shop/us/help/privacy-policy">Privacy / Ad Cookies</a> | <a href="https://www.abercrombie.com/shop/us/help/terms-of-use">Terms of Use</a> | <a href="https://www.abercrombie.com/shop/us/help/accessibility">Accessibility</a> | <a href="https://www.abercrombie.com/shop/us/help/do-not-sell">Do Not Sell or Share My Personal Information</a></p>
           <p>© 2026 Abercrombie &amp; Fitch. All Rights Reserved.</p>
         </div>
       </div>
     </div>
   </footer>
+  <script>
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Hamburger toggle
+  const nav = document.getElementById('nav');
+  const btn = document.querySelector('.nav-hamburger button');
+  if (btn && nav) {
+    nav.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', 'Open navigation');
+    btn.addEventListener('click', () => {
+      const expanded = nav.getAttribute('aria-expanded') === 'true';
+      nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      btn.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
+    });
+  }
+
+  // Wrap sections in .section divs if needed
+  const navSections = document.querySelector('.nav-sections');
+  if (navSections) {
+    const ul = navSections.querySelector('ul');
+    if (ul) {
+      ul.querySelectorAll('li').forEach(li => {
+        li.setAttribute('aria-expanded', 'false');
+        const link = li.querySelector('a');
+        if (link && li.querySelector('ul')) {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isOpen = li.getAttribute('aria-expanded') === 'true';
+            ul.querySelectorAll('li').forEach(l => l.setAttribute('aria-expanded', 'false'));
+            li.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+          });
+        }
+      });
+    }
+  }
+});
+
+  </script>
 </body>
 </html>
