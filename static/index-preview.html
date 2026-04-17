@@ -1708,6 +1708,28 @@ footer .footer .section:last-child a:hover {
 /* add global styles that can be loaded post LCP here */
 
 body { display: block !important; }
+
+/* Mobile nav open state fix */
+@media (width < 900px) {
+  .header.block nav[aria-expanded='true'] {
+    min-height: 100dvh;
+    height: auto;
+    overflow-y: auto;
+    display: grid;
+    grid-template:
+      'hamburger brand tools' var(--nav-height)
+      'sections sections sections' 1fr / auto 1fr auto;
+  }
+  .header.block nav[aria-expanded='true'] .nav-sections {
+    display: block !important;
+    visibility: visible !important;
+    padding: 0 16px;
+  }
+  .header.block nav[aria-expanded='false'] .nav-sections {
+    display: none !important;
+  }
+}
+
 header .header, footer .footer { visibility: visible !important; }
   </style>
 </head>
