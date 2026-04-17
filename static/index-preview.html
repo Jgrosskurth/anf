@@ -1744,6 +1744,69 @@ header .header, footer .footer { visibility: visible !important; }
     display: none !important;
   }
 }
+/* ===== SOURCE FIDELITY FIXES ===== */
+
+/* Typekit fonts - ensure DS Trade Gothic loads correctly */
+:root {
+  --heading-font-family: "DS Trade Gothic", "Trade Gothic", trade-gothic-next, sans-serif;
+  --body-font-family: garamond-premier-pro, "Garamond Premier Pro", serif;
+  --brand-navy: rgb(37, 55, 70);
+  --color-text-muted: rgb(94, 94, 94);
+  --space-16: 16px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-24: 24px;
+  --font-sans: "DS Trade Gothic", "Trade Gothic", sans-serif;
+}
+
+/* Body */
+body { font-family: var(--heading-font-family); color: var(--color-text-muted); background: #fff; }
+
+/* Promo banner - white bg, dark navy text, garamond for event name */
+.promo-banner { background: #fff !important; padding: 24px 72px; }
+.promo-banner em { font-family: garamond-premier-pro, serif; font-style: italic; font-size: 20px; color: var(--brand-navy); display: block; margin-bottom: 4px; }
+.promo-banner h2 { font-family: garamond-premier-pro, serif; font-size: 45px; font-weight: 400; color: var(--brand-navy); line-height: 1.1; margin: 0 0 16px 0; }
+.promo-banner a { font-family: "DS Trade Gothic", sans-serif; font-size: 13px; letter-spacing: 0.6px; color: var(--brand-navy); text-decoration: underline; margin-right: 24px; text-transform: uppercase; }
+.promo-banner p { margin: 0 0 8px 0; }
+
+/* Hero tout - text must be white over the image */
+.hero-tout-overlay { color: #fff; }
+.hero-tout-subcopy { font-family: "DS Trade Gothic", sans-serif; font-size: 18px; color: #fff; }
+.hero-tout-ctas a { font-family: "DS Trade Gothic", sans-serif; font-size: 13px; letter-spacing: 0.6px; color: #fff; text-decoration: underline; margin-right: 24px; }
+
+/* Nav links */
+.header.block nav a { font-family: "DS Trade Gothic", "Trade Gothic", sans-serif; letter-spacing: 0.6px; }
+.nav-promo-strip a { font-family: "DS Trade Gothic", sans-serif; font-size: 12px; letter-spacing: 0.6px; color: #fff; text-decoration: underline; margin-left: 8px; }
+.nav-promo-strip { font-family: "DS Trade Gothic", sans-serif; font-size: 12px; letter-spacing: 0.3px; }
+
+/* Product recs heading */
+.product-recs-title h2 { font-family: garamond-premier-pro, serif; font-size: 45px; font-weight: 400; color: var(--brand-navy); text-align: center; }
+.product-recs-tablist button { font-family: "DS Trade Gothic", sans-serif; font-size: 12px; letter-spacing: 0.6px; color: var(--color-text-muted); background: none; border: none; cursor: pointer; padding: 8px 16px; border-bottom: 2px solid transparent; }
+.product-recs-tablist button[aria-selected="true"] { border-bottom-color: var(--brand-navy); color: var(--brand-navy); font-weight: 700; }
+.product-recs-card-info h3 { font-family: "DS Trade Gothic", sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 0.3px; color: var(--brand-navy); margin: 4px 0; }
+.product-recs-card-info p { font-family: "DS Trade Gothic", sans-serif; font-size: 12px; color: var(--color-text-muted); margin: 2px 0; }
+.product-recs-badge { font-size: 10px !important; letter-spacing: 0.6px; text-transform: uppercase; }
+.product-recs-promo { color: #981420 !important; font-size: 11px !important; }
+
+/* YPB / hero-tout-2 */
+.hero-tout-2 a { color: #fff; text-decoration: underline; font-family: "DS Trade Gothic", sans-serif; font-size: 13px; letter-spacing: 0.6px; margin-right: 16px; }
+
+/* Rewards / legal strip */
+.rewards-banner { background: #f7f7f5; padding: 12px 72px; font-size: 10px; color: var(--color-text-muted); font-family: "DS Trade Gothic", sans-serif; }
+.rewards-banner a { color: var(--brand-navy); text-decoration: underline; font-size: 10px; }
+.rewards-banner p { margin: 2px 0; }
+
+/* Footer */
+footer .footer { background: #fff; border-top: 1px solid #e5e5e0; }
+footer .footer h4 { font-family: "DS Trade Gothic", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--brand-navy); margin-bottom: 12px; }
+footer .footer a { font-family: "DS Trade Gothic", sans-serif; font-size: 12px; color: var(--color-text-muted); text-decoration: none; display: block; padding: 3px 0; }
+footer .footer a:hover { text-decoration: underline; }
+footer .footer .footer-subscribe input { font-size: 12px; border: 1px solid #ccc; padding: 8px 12px; width: 180px; font-family: "DS Trade Gothic", sans-serif; }
+footer .footer .footer-subscribe button { background: var(--brand-navy); color: #fff; border: none; padding: 8px 16px; font-family: "DS Trade Gothic", sans-serif; font-size: 12px; letter-spacing: 0.6px; cursor: pointer; }
+footer .section:last-child { border-top: 1px solid #e5e5e0; font-size: 11px; text-align: center; color: var(--color-text-muted); padding: 16px 72px; }
+footer .section:last-child a { font-size: 11px; color: var(--color-text-muted); text-decoration: none; display: inline; padding: 0; }
+footer .section:last-child a:hover { text-decoration: underline; }
+
 </style>
 </head>
 <body class="appear">
