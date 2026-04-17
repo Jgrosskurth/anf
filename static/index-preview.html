@@ -6,8 +6,21 @@
   <title>Abercrombie &amp; Fitch | EDS Migration Preview</title>
   <link rel="stylesheet" href="https://use.typekit.net/prk2pgw.css">
   <style>
-@import url('brand.css');
+/* brand */
+:root {
+  --heading-font-family: "DS Trade Gothic", "Trade Gothic", sans-serif;
+  --body-font-family: garamond-premier-pro, serif;
+  --background-color: #ffffff;
+  --text-color: rgb(94, 94, 94);
+  --link-color: rgb(94, 94, 94);
+  --link-hover-color: rgb(0, 0, 0);
+  --section-padding: 0px;
+  --nav-height: 75px;
+}
 
+html, body { overflow: auto !important; }
+
+/* styles */
 /*
  * Abercrombie & Fitch - AEM Edge Delivery Services
  * Design system spec — minimal, monochrome, image-led
@@ -472,6 +485,7 @@ main .section.warm-beige {
   padding: var(--space-48) 0;
 }
 
+/* blocks */
 
 /* header */
 /* A&F Header — utility bar + nav + promo strip */
@@ -1705,11 +1719,12 @@ footer .footer .section:last-child a:hover {
 }
 
 
+/* lazy */
 /* add global styles that can be loaded post LCP here */
 
+/* standalone overrides */
 body { display: block !important; }
-
-/* Mobile nav open state fix */
+header .header, footer .footer { visibility: visible !important; }
 @media (width < 900px) {
   .header.block nav[aria-expanded='true'] {
     min-height: 100dvh;
@@ -1729,9 +1744,7 @@ body { display: block !important; }
     display: none !important;
   }
 }
-
-header .header, footer .footer { visibility: visible !important; }
-  </style>
+</style>
 </head>
 <body class="appear">
   <header>
