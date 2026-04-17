@@ -1971,41 +1971,273 @@ header .header, footer .footer { visibility: visible !important; }
   </footer>
   <script>
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Hamburger toggle
+document.addEventListener("DOMContentLoaded", async () => {
+window.promo_banner_decorate = async function(block) {
+  // Structure is already correct from plain.html:
+  // row 1: subheading (italic)
+  // row 2: main headline
+  // row 3: CTA links
+  // No DOM restructuring needed.
+}
+
+window.hero_tout_decorate = async function(block) {
+  const rows = [...block.children];
+
+  // Row 0: background image
+  // Row 1: headline image (handwriting)
+  // Row 2: subcopy text
+  // Row 3: CTA links
+
+  const bgRow = rows[0];
+  const headlineRow = rows[1];
+  const subcopyRow = rows[2];
+  const ctaRow = rows[3];
+
+  // Build background layer
+  const bgDiv = document.createElement('div');
+  bgDiv.className = 'hero-tout-bg';
+  const bgImg = bgRow?.querySelector('img');
+  if (bgImg) {
+    bgDiv.appendChild(bgImg.cloneNode(true));
+  }
+
+  // Build overlay
+  const overlay = document.createElement('div');
+  overlay.className = 'hero-tout-overlay';
+
+  // Headline image
+  if (headlineRow) {
+    const headlineDiv = document.createElement('div');
+    headlineDiv.className = 'hero-tout-headline';
+    const headlineImg = headlineRow.querySelector('img');
+    if (headlineImg) {
+      headlineDiv.appendChild(headlineImg.cloneNode(true));
+    }
+    overlay.appendChild(headlineDiv);
+  }
+
+  // Subcopy
+  if (subcopyRow) {
+    const subcopyDiv = document.createElement('div');
+    subcopyDiv.className = 'hero-tout-subcopy';
+    const subcopyText = subcopyRow.querySelector('p');
+    if (subcopyText) {
+      subcopyDiv.textContent = subcopyText.textContent;
+    }
+    overlay.appendChild(subcopyDiv);
+  }
+
+  // CTAs
+  if (ctaRow) {
+    const ctasDiv = document.createElement('div');
+    ctasDiv.className = 'hero-tout-ctas';
+    const links = ctaRow.querySelectorAll('a');
+    links.forEach((link) => {
+      const a = link.cloneNode(true);
+      a.className = '';
+      ctasDiv.appendChild(a);
+    });
+    overlay.appendChild(ctasDiv);
+  }
+
+  // Replace block content
+  block.textContent = '';
+  block.appendChild(bgDiv);
+  block.appendChild(overlay);
+}
+
+window.product_recs_decorate = async function(block) {
+  const rows = [...block.children];
+  if (rows.length < 3) return;
+
+  /* Row 0: Title */
+  const titleRow = rows[0];
+  titleRow.classList.add('product-recs-title');
+
+  /* Row 1: Tabs */
+  const tabRow = rows[1];
+  tabRow.classList.add('product-recs-tabs');
+  const tabCells = [...tabRow.children];
+  const tabList = document.createElement('div');
+  tabList.classList.add('product-recs-tablist');
+  tabList.setAttribute('role', 'tablist');
+
+  tabCells.forEach((cell, i) => {
+    const btn = document.createElement('button');
+    btn.setAttribute('role', 'tab');
+    btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+    btn.textContent = cell.textContent.trim();
+    btn.addEventListener('click', () => {
+      tabList.querySelectorAll('[role=tab]').forEach((t) => t.setAttribute('aria-selected', 'false'));
+      btn.setAttribute('aria-selected', 'true');
+    });
+    tabList.append(btn);
+  });
+
+  tabRow.replaceChildren(tabList);
+
+  /* Rows 2+: Product cards */
+  const cardContainer = document.createElement('div');
+  cardContainer.classList.add('product-recs-cards');
+
+  rows.slice(2).forEach((row) => {
+    row.classList.add('product-recs-card');
+    const cells = [...row.children];
+    if (cells.length >= 2) {
+      cells[0].classList.add('product-recs-card-image');
+      cells[1].classList.add('product-recs-card-info');
+
+      /* Parse info cell: badge, name (h3), price, promo, link */
+      const paragraphs = [...cells[1].querySelectorAll('p')];
+      if (paragraphs.length >= 1) paragraphs[0].classList.add('product-recs-badge');
+      if (paragraphs.length >= 3) paragraphs[2].classList.add('product-recs-promo');
+    }
+    cardContainer.append(row);
+  });
+
+  block.append(cardContainer);
+}
+
+window.hero_tout_2_decorate = async function(block) {
+  const rows = [...block.children];
+  if (!rows.length) return;
+
+  const row = rows[0];
+  const cells = [...row.children];
+
+  // cells: [0] = bg image, [1] = logo image, [2] = CTA links
+  // Restructure: logo and CTAs share the overlay area at bottom-left
+  // The CSS grid handles positioning via grid-area overlap
+}
+
+window.rewards_banner_decorate = async function(block) {
+  // Simple text-only banner — no DOM restructuring needed.
+  // Rows contain legal text lines and a "See All Offer Details" link.
+}
+
+import { getMetadata } from '../../scripts/aem.js';
+import { loadFragment } from '../fragment/fragment.js';
+
+/**
+ * loads and decorates the footer
+ * @param {Element} block The footer block element
+ */
+window.footer_decorate = async function(block) {
+  // load footer as fragment
+  const footerMeta = getMetadata('footer');
+  const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/footer';
+  const fragment = await loadFragment(footerPath);
+
+  // decorate footer DOM
+  block.textContent = '';
+  const footer = document.createElement('div');
+  while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
+
+  // Group h4 + ul pairs into column divs for the link columns section
+  const firstSection = footer.querySelector('.section:first-child');
+  if (firstSection) {
+    const headings = firstSection.querySelectorAll('h4');
+    if (headings.length > 1) {
+      // Capture pairs before any DOM manipulation
+      const pairs = [...headings].map((h4) => {
+        const next = h4.nextElementSibling;
+        return { h4, ul: next && next.tagName === 'UL' ? next : null };
+      });
+
+      // Build column divs
+      const columns = pairs.map(({ h4, ul }) => {
+        const col = document.createElement('div');
+        const heading = h4.textContent.trim().toLowerCase();
+
+        // Turn "Subscribe" column into an email form
+        if (heading === 'subscribe') {
+          col.className = 'footer-subscribe';
+          col.append(h4);
+          const form = document.createElement('form');
+          form.className = 'footer-subscribe-form';
+          form.setAttribute('action', '#');
+          form.innerHTML = `
+            <input type="email" placeholder="Email Address" aria-label="Email Address" required>
+            <button type="submit">Join</button>
+          `;
+          col.append(form);
+        } else if (heading === 'connect') {
+          // Turn "Connect" links into social icons
+          col.className = 'footer-connect';
+          col.append(h4);
+          if (ul) {
+            const iconMap = {
+              instagram: 'instagram',
+              tiktok: 'tiktok',
+              facebook: 'facebook',
+              pinterest: 'pinterest',
+              youtube: 'youtube',
+            };
+            const iconRow = document.createElement('div');
+            iconRow.className = 'footer-social-icons';
+            ul.querySelectorAll('a').forEach((a) => {
+              const label = a.textContent.trim();
+              const iconName = iconMap[label.toLowerCase()];
+              if (iconName) {
+                a.innerHTML = `<span class="icon icon-${iconName}"><img data-icon-name="${iconName}" src="/icons/${iconName}.svg" alt="${label}" loading="lazy"></span>`;
+                a.setAttribute('aria-label', label);
+              }
+              iconRow.append(a);
+            });
+            col.append(iconRow);
+          }
+        } else {
+          col.append(h4);
+          if (ul) col.append(ul);
+        }
+        return col;
+      });
+
+      // Find or create .default-content-wrapper and rebuild
+      let wrapper = firstSection.querySelector('.default-content-wrapper');
+      if (!wrapper) {
+        wrapper = document.createElement('div');
+        wrapper.className = 'default-content-wrapper';
+      }
+      wrapper.replaceChildren(...columns);
+      firstSection.replaceChildren(wrapper);
+    }
+  }
+
+  block.append(footer);
+}
+
+
+  // Run decorators on all blocks
+  const map = {"promo-banner": "promo_banner_decorate", "hero-tout": "hero_tout_decorate", "product-recs": "product_recs_decorate", "hero-tout-2": "hero_tout_2_decorate", "rewards-banner": "rewards_banner_decorate", "footer": "footer_decorate"};
+  for (const [name, fn] of Object.entries(map)) {
+    const blocks = document.querySelectorAll(`.${name}`);
+    for (const block of blocks) { try { await window[fn](block); } catch(e) { console.warn(fn, e); } }
+  }
+
+  // Hamburger
   const nav = document.getElementById('nav');
   const btn = document.querySelector('.nav-hamburger button');
   if (btn && nav) {
     nav.setAttribute('aria-expanded', 'false');
-    btn.setAttribute('aria-label', 'Open navigation');
     btn.addEventListener('click', () => {
       const expanded = nav.getAttribute('aria-expanded') === 'true';
       nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-      btn.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
     });
   }
-
-  // Wrap sections in .section divs if needed
-  const navSections = document.querySelector('.nav-sections');
-  if (navSections) {
-    const ul = navSections.querySelector('ul');
-    if (ul) {
-      ul.querySelectorAll('li').forEach(li => {
-        li.setAttribute('aria-expanded', 'false');
-        const link = li.querySelector('a');
-        if (link && li.querySelector('ul')) {
-          link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const isOpen = li.getAttribute('aria-expanded') === 'true';
-            ul.querySelectorAll('li').forEach(l => l.setAttribute('aria-expanded', 'false'));
-            li.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-          });
-        }
+  document.querySelectorAll('.nav-sections li').forEach(li => {
+    if (li.querySelector('ul')) {
+      li.setAttribute('aria-expanded', 'false');
+      li.querySelector('a').addEventListener('click', e => {
+        e.preventDefault();
+        const open = li.getAttribute('aria-expanded') === 'true';
+        document.querySelectorAll('.nav-sections li').forEach(l => l.setAttribute('aria-expanded', 'false'));
+        li.setAttribute('aria-expanded', open ? 'false' : 'true');
       });
     }
-  }
+  });
 });
 
-  </script>
+</script>
 </body>
 </html>
