@@ -1971,7 +1971,7 @@ header .header, footer .footer { visibility: visible !important; }
   </footer>
   <script>
 
-document.addEventListener("DOMContentLoaded", async () => {
+(async () => {
 window.promo_banner_decorate = async function(block) {
   // Structure is already correct from plain.html:
   // row 1: subheading (italic)
@@ -2236,8 +2236,7 @@ window.footer_decorate = async function(block) {
       });
     }
   });
-});
-
+})();
 </script>
 </body>
 </html>
