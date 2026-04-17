@@ -187,7 +187,7 @@ export default async function decorate(block) {
   // promo strip — sitewide promotion
   const promoStrip = document.createElement('div');
   promoStrip.className = 'nav-promo-strip';
-  promoStrip.innerHTML = `<p>Free Shipping on Orders Over $99 |
+  promoStrip.innerHTML = `<p>Perfectly Paired Event: Buy One, Get One 50% Off Everything* | Free Standard Shipping And Handling On All Orders Over $99^&ensp;
     <a href="https://www.abercrombie.com/shop/us/womens">SHOP WOMEN'S</a>&ensp;
     <a href="https://www.abercrombie.com/shop/us/mens">SHOP MEN'S</a></p>`;
 

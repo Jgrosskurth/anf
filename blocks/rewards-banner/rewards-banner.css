@@ -1,0 +1,48 @@
+.rewards-banner-wrapper {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+.rewards-banner {
+  --rb-text: #253746;
+  --rb-link: #5e5e5e;
+  --rb-font-size: 12px;
+  --rb-line-height: 1.2;
+  --rb-padding: 0 10px;
+
+  padding: var(--rb-padding);
+  font-size: var(--rb-font-size);
+  line-height: var(--rb-line-height);
+}
+
+.rewards-banner > div {
+  margin: 0;
+}
+
+.rewards-banner > div > div {
+  margin: 0;
+}
+
+.rewards-banner p {
+  margin: 0;
+  padding: 0;
+  color: var(--rb-text);
+  font-size: var(--rb-font-size);
+  line-height: var(--rb-line-height);
+}
+
+main .rewards-banner a.button:any-link,
+.rewards-banner a:any-link {
+  color: var(--rb-link);
+  font-size: var(--rb-font-size);
+  font-weight: 400;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+main .rewards-banner .button-container {
+  display: inline;
+}

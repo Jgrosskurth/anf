@@ -1,7 +1,7 @@
 /* Footer — multi-column links, legal row */
 
 footer {
-  background-color: var(--color-bg);
+  background-color: var(--color-surface);
   font-family: var(--body-font-family);
   color: var(--color-text-muted);
   border-top: 1px solid var(--color-border);

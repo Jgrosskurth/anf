@@ -1,3 +1,5 @@
+@import url('brand.css');
+
 /*
  * Abercrombie & Fitch - AEM Edge Delivery Services
  * Design system spec — minimal, monochrome, image-led
@@ -116,6 +118,13 @@
   --button-transition: background-color var(--duration-base) var(--ease-standard),
     color var(--duration-base) var(--ease-standard),
     border-color var(--duration-base) var(--ease-standard);
+}
+
+main .button-container { display: inline; }
+main a.button:any-link {
+background: none; border: none; border-radius: 0;
+color: var(--link-color); font-size: inherit; font-weight: inherit;
+padding: 0; margin: 0; text-decoration: underline; white-space: normal;
 }
 
 /* fallback fonts */

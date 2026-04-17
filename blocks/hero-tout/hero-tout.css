@@ -1,0 +1,92 @@
+/* hero-tout — full-bleed image tout with text overlay */
+
+.hero-tout-wrapper {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+.hero-tout {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* background image row — hidden after JS moves img */
+.hero-tout .hero-tout-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-tout .hero-tout-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* overlay content */
+.hero-tout .hero-tout-overlay {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  min-height: 500px;
+  padding: var(--space-32) var(--space-24);
+  box-sizing: border-box;
+}
+
+/* handwriting image */
+.hero-tout .hero-tout-overlay .hero-tout-headline img {
+  max-width: 42%;
+  height: auto;
+  display: block;
+  margin-bottom: var(--space-8);
+}
+
+/* subcopy */
+.hero-tout .hero-tout-overlay .hero-tout-subcopy {
+  font-size: 18px;
+  font-family: var(--font-sans);
+  color: #fff;
+  line-height: 1.2;
+  margin: var(--space-8) 0 var(--space-8) 0;
+  max-width: 480px;
+}
+
+/* CTA links */
+.hero-tout .hero-tout-overlay .hero-tout-ctas {
+  display: flex;
+  gap: var(--space-16);
+}
+
+.hero-tout .hero-tout-overlay .hero-tout-ctas a {
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: underline;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.hero-tout .hero-tout-overlay .hero-tout-ctas a:hover {
+  text-decoration: none;
+}
+
+@media (width >= 900px) {
+  .hero-tout {
+    min-height: 860px;
+  }
+
+  .hero-tout .hero-tout-overlay {
+    min-height: 860px;
+    padding: var(--space-64) 72px;
+    justify-content: center;
+    align-items: flex-start;
+  }
+}

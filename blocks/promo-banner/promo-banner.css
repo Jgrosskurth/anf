@@ -1,0 +1,90 @@
+/* promo-banner — full-width promotional tout */
+
+.promo-banner-wrapper {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+.promo-banner {
+  --pb-bg: var(--brand-warm-beige, #f7f7f5);
+  --pb-text: var(--brand-navy, #253746);
+  --pb-font: var(--heading-font-family-campaign, serif);
+  --pb-padding-y: 32px;
+  --pb-padding-x: var(--space-24);
+
+  background: var(--pb-bg);
+  color: var(--pb-text);
+  padding: var(--pb-padding-y) var(--pb-padding-x);
+}
+
+.promo-banner > div {
+  max-width: var(--section-max-w, 1296px);
+}
+
+/* row 1 — subheading (italic campaign) */
+.promo-banner > div:first-child p {
+  font-family: var(--pb-font);
+  font-size: 35px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 35px;
+  color: var(--pb-text);
+  margin: 0 0 4px;
+}
+
+.promo-banner > div:first-child em {
+  font-style: italic;
+}
+
+/* row 2 — main headline */
+.promo-banner h2 {
+  font-family: var(--pb-font);
+  font-size: 55px;
+  font-weight: 400;
+  line-height: 55px;
+  color: var(--pb-text);
+  margin: 0;
+  letter-spacing: normal;
+}
+
+/* row 3 — CTA links */
+.promo-banner > div:last-child > div {
+  display: flex;
+  gap: var(--space-32);
+  margin-top: 16px;
+}
+
+.promo-banner > div:last-child p {
+  margin: 0;
+}
+
+.promo-banner > div:last-child a {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--pb-text);
+  text-decoration: underline;
+  letter-spacing: 0.6px;
+}
+
+/* button override — keep links as underlined text, not styled buttons */
+main .promo-banner .button-container { display: inline; }
+main .promo-banner a.button:any-link {
+  background: none;
+  border: none;
+  color: var(--pb-text);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+  text-decoration: underline;
+  letter-spacing: 0.6px;
+  text-transform: none;
+  height: auto;
+  white-space: normal;
+}
+
+@media (width >= 900px) {
+  .promo-banner {
+    --pb-padding-x: 72px;
+  }
+}
